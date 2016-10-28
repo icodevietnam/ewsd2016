@@ -1,13 +1,6 @@
 <?php
-/**
-** RainCaptcha PHP Wrapper v1.1.0.
-**
-** Documentation: http://raincaptcha.driversworld.us/pages/docs_php_wrapper
-** http://raincaptcha.driversworld.us/
-** This code is in the public domain.
-*/
 
-namespace Nova\Helpers;
+namespace Helpers;
 
 /**
  * RainCaptcha: Anti-spam protection for your website.
@@ -27,7 +20,7 @@ class RainCaptcha
     private $sessionId;
 
     /**
-     * When the class is called, the $sessionId is stored or the server settings are used as a reference.
+     * When class is called sessionId is stored or server settings are used for reference.
      *
      * @param string $sessionId instance id
      */
@@ -51,7 +44,7 @@ class RainCaptcha
     }
 
     /**
-     * Compare the given answer against the generated session.
+     * Compare given answer against the generated session.
      *
      * @param  string $answer
      * @return boolean

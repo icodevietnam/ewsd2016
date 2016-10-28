@@ -1,12 +1,6 @@
 <?php
-/**
- * FTP Class
- *
- * @author David Carr - dave@daveismyname.com
- * @version 3.0
- */
 
-namespace Nova\Helpers;
+namespace Helpers;
 
 /**
  * Interact with remote FTP Server.
@@ -21,14 +15,14 @@ class Ftp
     private $conn;
 
     /**
-     * Hold the path relative to the root of the server.
+     * Holds the path relative to the root of the server.
      *
      * @var string
      */
     private $basePath;
 
     /**
-     * Open an FTP connection.
+     * Open a FTP connection.
      *
      * @param string $host the server address
      * @param string $user username
@@ -37,13 +31,13 @@ class Ftp
      */
     public function __construct($host, $user, $pass, $base)
     {
-        // Set the basepath.
+        //set the basepath
         $this->basePath = $base.'/';
 
-        // Open a connection.
+        //open a connection
         $this->conn = ftp_connect($host);
 
-        // Login to the server.
+        //login to server
         ftp_login($this->conn, $user, $pass);
     }
 
@@ -68,7 +62,7 @@ class Ftp
     }
 
     /**
-     * Delete a directory from the FTP server.
+     * Delete directory from FTP server.
      *
      * @param  string $dir foldr to delete
      */
@@ -78,7 +72,7 @@ class Ftp
     }
 
     /**
-     * Set the folder permissions.
+     * Set folder permission.
      *
      * @param  string $folderChmod folder name
      * @param  integer $permission permission value
@@ -93,7 +87,7 @@ class Ftp
     }
 
     /**
-     * Upload a file to the FTP server.
+     * Upload file to FTP server.
      *
      * @param  string $remoteFile path and filename for remote file
      * @param  string $localFile  local path to file
@@ -110,7 +104,7 @@ class Ftp
     }
 
     /**
-     * Delete a file.
+     * Delete remove file.
      *
      * @param  string $file path and filename
      */

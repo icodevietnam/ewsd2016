@@ -1,20 +1,14 @@
 <?php
-/**
-* Curl class.
-*
-* @author SecretD - https://github.com/SecretD
-* @version 3.0
-*/
 
-namespace Nova\Helpers;
+namespace Helpers;
 
 /**
- * Set some default functions and settings.
+ * Sets some default functions and settings.
  */
 class SimpleCurl
 {
     /**
-    * Perform a get request on the chosen link and the chosen parameters
+    * Performs a get request on the chosen link and the chosen parameters
     * in the array.
     *
     * @param string $url
@@ -42,7 +36,7 @@ class SimpleCurl
     }
 
     /**
-    * Perform a post request on the chosen link and the chosen parameters
+    * Performs a post request on the chosen link and the chosen parameters
     * in the array.
     *
     * @param string $url
@@ -72,7 +66,7 @@ class SimpleCurl
     }
 
     /**
-    * Perform a put request on the chosen link and the chosen parameters
+    * Performs a put request on the chosen link and the chosen parameters
     * in the array.
     *
     * @param string $url

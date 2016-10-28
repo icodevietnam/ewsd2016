@@ -1,20 +1,13 @@
 <?php
-/**
- * Date Helper.
- *
- * @author David Carr - dave@novaframework.com
- * @version 3.0
- */
-
-namespace Nova\Helpers;
+namespace Helpers;
 
 /**
- * A collection of methods for working with dates.
+ * collection of methods for working with dates.
  */
 class Date
 {
     /**
-     * Get the difference between two dates.
+     * get the difference between 2 dates
      *
      * @param  date $from start date
      * @param  date $to   end date
@@ -35,9 +28,9 @@ class Date
     }
 
     /**
-     * Business Days.
+     * Business Days
      *
-     * Get the number of working days between two dates.
+     * Get number of working days between 2 dates
      *
      * Taken from http://mugurel.sumanariu.ro/php-2/php-how-to-calculate-number-of-work-days-between-2-dates/
      *
@@ -78,7 +71,7 @@ class Date
     }
 
     /**
-    * Retrieve an array of dates between two dates (excluding weekends).
+    * get an array of dates between 2 dates (not including weekends)
     *
     * @param  date    $startDate start date
     * @param  date    $endDate end date
@@ -101,9 +94,8 @@ class Date
     }
 
     /**
-     * Take a month/year as input and return the number of days
-     * for the given month/year. This also takes leap years into consideration.
-     *
+     * Takes a month/year as input and returns the number of days
+     * for the given month/year. Takes leap years into consideration.
      * @param int $month
      * @param int $year
      * @return int

@@ -1,12 +1,12 @@
 <?php
-namespace Nova\Cli;
+namespace Cli;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Nova\Helpers\ReservedWords;
+use Helpers\ReservedWords;
 
 class ModelCommand extends Command
 {
@@ -66,12 +66,14 @@ class ModelCommand extends Command
 $data = "<?php
 namespace App\Models;
 
-use Nova\Database\Model;
+use Core\Model;
 
 class ".ucwords($this->modelName)." extends Model
 {
-    protected \$table = '".strtolower($this->modelName)."';
-    protected \$primaryKey = 'id';
+    public function __construct()
+    {
+        parent::__construct();
+    }
     ";
 
 if (is_array($this->methods)) {
@@ -83,8 +85,7 @@ if (is_array($this->methods)) {
     }\n";
     }
 }
-$data .="
-}
+$data .="}
 ";
         file_put_contents("app/Models/".ucwords($this->modelName).".php", $data);
     }

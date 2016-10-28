@@ -1,12 +1,12 @@
 <?php
-namespace Nova\Cli;
+namespace Cli;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
-use Nova\Helpers\ReservedWords;
+use Helpers\ReservedWords;
 
 class ControllerCommand extends Command
 {
@@ -90,20 +90,18 @@ class ControllerCommand extends Command
                 }
             }
             $file = file_get_contents("app/Routes.php");
-            $file = str_replace("/** End default Routes */", "$methods/** End default Routes */", $file);
+            $file = str_replace("/** End default routes */", "$methods/** End default routes */", $file);
             file_put_contents("app/Routes.php", $file);
         }
     }
 
     public function makeController()
     {
-        $data = "<?php
+$data = "<?php
 namespace App\Controllers;
 
-use App\Core\Controller;
-
-use View;
-
+use Core\View;
+use Core\Controller;
 
 class ".ucwords($this->controllerName)." extends Controller
 {
@@ -112,24 +110,21 @@ class ".ucwords($this->controllerName)." extends Controller
         parent::__construct();
     }
     ";
-
-        if (is_array($this->methods)) {
-            foreach ($this->methods as $method) {
-                $title = ucwords($method);
-
-                $data .= "
+if (is_array($this->methods)) {
+    foreach ($this->methods as $method) {
+    $data .="
     public function $method()
     {
-       return \$this->getView()
-            ->shares('title', '$title');
+        \$data['title'] = '$method';
+
+        View::renderTemplate('header', \$data);
+        View::render('".ucwords($this->controllerName)."/".ucwords($method)."', \$data);
+        View::renderTemplate('footer', \$data);
     }\n";
-            }
-        }
-
-        $data .= "
+    }
 }
+$data .="}
 ";
-
         file_put_contents("app/Controllers/".ucwords($this->controllerName).".php", $data);
     }
 }

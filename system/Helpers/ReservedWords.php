@@ -1,15 +1,9 @@
 <?php
-/**
- * Reserved Words.
- *
- * @author David Carr - dave@novaframework.com
- * @version 3.0
- */
 
-namespace Nova\Helpers;
+namespace Helpers;
 
 /**
- * A List of reserved words for php 5.x and 7
+ * List of reserved words for php 5.x and 7
  */
 class ReservedWords
 {
