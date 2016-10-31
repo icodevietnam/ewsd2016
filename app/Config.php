@@ -30,6 +30,11 @@ class Config
         define('DIR', '/ewsd2016/');
 
         /**
+         * Define Dashboard path.
+         */
+        define('ADMIN_DIR', '/ewsd2016/admin/');
+
+        /**
          * Set the Application Router.
          */
         // Default Routing
@@ -62,6 +67,11 @@ class Config
          * Set the default template.
          */
         define('HOME', 'HOME');
+
+        /**
+         * Set the site title.
+         */
+        define('SITETITLE', 'Contribution System');
 
 
         /**
@@ -121,6 +131,11 @@ class Config
          * Set timezone.
          */
         date_default_timezone_set('Asia/Ho_Chi_Minh');
+
+        /**
+         * Define upload image size   
+         */
+        define('SIZEIMAGE', 2048000);
 
         /**
          * Start sessions.

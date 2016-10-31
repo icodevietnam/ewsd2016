@@ -64,6 +64,9 @@
                             <span class="block m-t-xs"> <strong
                                     class="font-bold"><?php echo Session::get('admin')[0]->fullname ?></strong>
                             </span>
+                            <span class="block m-t-xs"> <strong
+                                    class="font-bold"><?php Session::get('admin')[0]->roleName?></strong>
+                            </span>
                             <!-- <span class="departmentCur text-muted text-xs block">Phòng: Art Director</span> -->
                         </span>
                         </a>
@@ -76,7 +79,7 @@
                     </div>
                     <div class="logo-element">IN+</div>
                 </li>
-                <?php if(Session::get('admin')[0]->roleName == 'admin') {?>
+               
                 <li class="user <?php if($menu == 'preference') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
                     class="nav-label">General</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
@@ -90,26 +93,13 @@
                         <li><a href="<?=DIR;?>admin/role">Manage Roles</a></li>
                     </ul>
                 </li>
-                <?php } ?>
-                <?php if(Session::get('admin')[0]->roleName == 'teacher' || Session::get('admin')[0]->roleName == 'admin') {?>
-                <li class="exam <?php if($menu == 'exam') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
-                    class="nav-label">Manage Examination</span> <span class="fa arrow"></span></a>
+                <li class="user <?php if($menu == 'user') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
+                    class="nav-label">Manage Contribution</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="<?=DIR;?>admin/level">Manage Levels</a></li>
-                        <li><a href="<?=DIR;?>admin/question-answer">Question & Answer</a></li>
-                        <!-- <li><a href="<?=DIR;?>admin/check-exams">Check Exams</a></li> -->
+                        <li><a href="<?=DIR;?>admin/faculty">Manage Facuties</a></li>
+                       
                     </ul>
                 </li>
-                <?php } ?>
-                <?php if(Session::get('admin')[0]->roleName == 'admin') {?>
-                <li class="news <?php if($menu == 'news') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
-                    class="nav-label">News</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="<?=DIR;?>admin/notification">Manage Notification</a></li>
-                        <li><a href="<?=DIR;?>admin/news">Manage News</a></li>
-                    </ul>
-                </li>
-                <?php } ?>
             </ul>
         </div>
     </nav>
@@ -149,7 +139,7 @@
     <div class="col-lg-10">
         <h2><?= $title ?></h2>
         <ol class="breadcrumb">
-            <li><a href="<?=DIR;?>">Home</a></li>
+            <li><a href="<?=ADMIN_DIR;?>">Home</a></li>
             <li class="active"><strong><?= $title ?></strong></li>
         </ol>
     </div>

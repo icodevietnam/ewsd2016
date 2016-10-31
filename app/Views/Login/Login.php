@@ -1,4 +1,4 @@
-<form class="form" action="/cat-prj/admin/login" method="post" >
+<form class="form" action="/ewsd2016/admin/login" method="post" >
     <input type="text" placeholder="Username" name="username" />
     <input type="password" placeholder="Password" name="password" />
     <button type="submit" class='btn-submit'>Login</button>

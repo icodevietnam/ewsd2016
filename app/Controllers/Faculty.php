@@ -6,29 +6,29 @@ use Core\View;
 use Core\Controller;
 use Helpers\Session;
 
-class Role extends Controller {	
+class Faculty extends Controller {	
 
-	private $roles;
+	private $faculties;
 
 	public function __construct()
     {
         parent::__construct();
-        $this->roles = new \App\Models\Roles();
+        $this->faculties = new \App\Models\Faculties();
     }
 
     public function index(){
         if(Session::get('admin') == null){
             Url::redirect('admin/login');
         }
-    	$data['title'] = 'Role Management';
+    	$data['title'] = 'Faculty Management';
         $data['menu'] = 'user';
     	View::renderTemplate('header', $data);
-        View::render('Role/Role', $data);
+        View::render('Faculty/Faculty', $data);
         View::renderTemplate('footer', $data);
     }
 
     public function getAll(){
-    	echo json_encode($this->roles->getAll());
+    	echo json_encode($this->faculties->getAll());
     }
 
     public function add(){
@@ -36,17 +36,17 @@ class Role extends Controller {
     	$description = $_POST['description'];
         $code = $_POST['code'];
     	$data = array('name' => $name,'description' => $description,'code' => $code);
-    	echo json_encode($this->roles->add($data));
+    	echo json_encode($this->faculties->add($data));
     }
 
     public function delete(){
     	$id = $_POST['itemId'];
-    	echo json_encode($this->roles->delete($id));
+    	echo json_encode($this->faculties->delete($id));
     }
 
     public function get(){
     	$id = $_GET['itemId'];
-    	echo json_encode($this->roles->get($id));
+    	echo json_encode($this->faculties->get($id));
     }
 
 
@@ -60,7 +60,7 @@ class Role extends Controller {
     	$data = array('name' => $name,'description' => $description,'code' => $code);
     	$where = array('id' => $id);
 
-    	echo json_encode($this->roles->update($data,$where));
+    	echo json_encode($this->faculties->update($data,$where));
     }
 
 }

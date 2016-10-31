@@ -8,6 +8,8 @@ $(function() {
 			},
 			description:{
 				required:true
+			},code :{
+				required:true
 			}
 		},
 		messages : {
@@ -16,6 +18,9 @@ $(function() {
 			},
 			description:{
 				required:"Description is not blank"
+			},
+			code:{
+				required:"Code is not blank"
 			}
 		},
 	});
@@ -27,6 +32,8 @@ $(function() {
 			},
 			description:{
 				required:true
+			},code :{
+				required:true
 			}
 		},
 		messages : {
@@ -35,6 +42,9 @@ $(function() {
 			},
 			description:{
 				required:"Description is not blank"
+			},
+			code:{
+				required:"Code is not blank"
 			}
 		},
 	});
@@ -43,7 +53,7 @@ $(function() {
 function displayTable() {
 	var dataItems = [];
 	$.ajax({
-		url : "/cat-prj/role/getAll",
+		url : "/ewsd2016/role/getAll",
 		type : "GET",
 		dataType : "JSON",
 		success : function(response) {
@@ -52,7 +62,7 @@ function displayTable() {
 				i++;
 				dataItems.push([
 						i,
-						value.name,value.description,
+						value.name,value.description,value.code,
 						"<button class='btn btn-sm btn-primary' onclick='getItem("
 								+ value.id + ");' >Edit</button>",
 						"<button class='btn btn-sm btn-danger' onclick='deleteItem("
@@ -74,6 +84,8 @@ function displayTable() {
 				}, {
 					"sTitle" : "Description"
 				}, {
+					"sTitle" : "Code"
+				}, {
 					"sTitle" : "Edit"
 				}, {
 					"sTitle" : "Delete"
@@ -85,7 +97,7 @@ function displayTable() {
 
 function getItem(id) {
 	$.ajax({
-		url : "/cat-prj/role/get",
+		url : "/ewsd2016/role/get",
 		type : "GET",
 		data : {
 			itemId : id
@@ -96,6 +108,7 @@ function getItem(id) {
 				$("#updateItemForm .id").val(value.id);
 				$("#updateItemForm .name").val(value.name);
 				$("#updateItemForm .description").val(value.description);
+				$("#updateItemForm .code").val(value.code);
 			})	
 		},
 		complete : function(){
@@ -110,7 +123,7 @@ function getItem(id) {
 function deleteItem(id) {
 	if (confirm("Are you sure you want to proceed?") == true) {
 		$.ajax({
-			url : "/cat-prj/role/delete",
+			url : "/ewsd2016/role/delete",
 			type : "POST",
 			data : {
 				itemId : id
@@ -130,13 +143,15 @@ function update() {
 		var id = $("#updateItemForm .id").val();
 		var name = $("#updateItemForm .name").val();
 		var description = $("#updateItemForm .description").val();
+		var code = $("#updateItemForm .code").val();
 		$.ajax({
-			url : "/cat-prj/role/update",
+			url : "/ewsd2016/role/update",
 			type : "POST",
 			data : {
 				id : id,
 				name : name,
-				description : description
+				description : description,
+				code : code
 			},
 			dataType : "JSON",
 			success : function(response) {
@@ -156,12 +171,14 @@ function insertItem() {
 	if($("#newItemForm").valid()){
 		var name = $("#newItemForm .name").val();
 		var description = $("#newItemForm .description").val();
+		var code = $("#newItemForm .code").val();
 		$.ajax({
-			url : "/cat-prj/role/add",
+			url : "/ewsd2016/role/add",
 			type : "POST",
 			data : {
 				name : name,
-				description : description
+				description : description,
+				code : code
 			},
 			dataType : "JSON",
 			success : function(response) {

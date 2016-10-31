@@ -47,7 +47,7 @@ class User extends Controller {
         $fileName = $_FILES['avatar']['name'];
 
         if("" === $fileName){
-            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => 'http://localhost/cat-prj/assets/images/default.png','role' => $role);
+            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $role);
         }else{
             $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => $avatar ,'role' => $role );
         }

@@ -56,7 +56,9 @@ class Profile extends Controller {
         }
 
         $where = array('id' => $id);
-        $admin = $this->users->update($data,$where);
+        $this->users->update($data,$where);
+        $admin = $this->users->get($id);
+        Session::set('admin',$admin);
         echo json_encode($admin);
     }
 

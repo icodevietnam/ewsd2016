@@ -42,7 +42,7 @@ function changeProfile(){
 	var formData =  new FormData(form[0]);
 	if(form.valid()){
 		$.ajax({
-			url : "/cat-prj/user/change-profile",
+			url : "/ewsd2016/user/change-profile",
 			type : "POST",
 			data : formData,
 			contentType : false,

@@ -26,37 +26,45 @@ Router::get('/answer/getAnswer','App\Controllers\Question@getAnswer');
 Router::get('/answer/checkAnswer','App\Controllers\Question@checkAnswer');
 
 // Default Routing
-Router::any('admin/user', 'App\Controllers\User@index');
-Router::any('admin/role', 'App\Controllers\Role@index');
-Router::any('admin/level', 'App\Controllers\Level@index');
-Router::any('admin/dashboard', 'App\Controllers\Dashboard@index');
-Router::any('admin','App\Controllers\Dashboard@index');
-Router::any('admin/','App\Controllers\Dashboard@index');
-Router::get('admin/notification', 'App\Controllers\Notification@index');
-Router::get('admin/news', 'App\Controllers\Notification@index2');
-Router::get('admin/question-answer', 'App\Controllers\Question@index');
-Router::get('admin/profile', 'App\Controllers\Profile@profile');
-Router::get('admin/change-password', 'App\Controllers\Profile@changePassword');
-Router::post('user/change-profile','App\Controllers\Profile@updateProfile');
-Router::post('user/changeMyPassword','App\Controllers\Profile@changeMyPassword');
+Router::any('/admin/user', 'App\Controllers\User@index');
+Router::any('/admin/role', 'App\Controllers\Role@index');
+Router::any('/admin/level', 'App\Controllers\Level@index');
+Router::any('/admin/dashboard', 'App\Controllers\Dashboard@index');
+Router::any('/admin','App\Controllers\Dashboard@index');
+Router::any('/admin/','App\Controllers\Dashboard@index');
+Router::get('/admin/notification', 'App\Controllers\Notification@index');
+Router::get('/admin/news', 'App\Controllers\Notification@index2');
+Router::get('/admin/question-answer', 'App\Controllers\Question@index');
+Router::get('/admin/faculty', 'App\Controllers\Faculty@index');
+Router::get('/admin/profile', 'App\Controllers\Profile@profile');
+Router::get('/admin/change-password', 'App\Controllers\Profile@changePassword');
+Router::post('/user/change-profile','App\Controllers\Profile@updateProfile');
+Router::post('/user/changeMyPassword','App\Controllers\Profile@changeMyPassword');
 Router::get('/home','App\Controllers\HomeIndex@index');
 Router::get('/about-us','App\Controllers\HomeAbout@index');
 Router::get('/','App\Controllers\HomeIndex@index');
 
 //Login Admin
 Router::post('login', 'App\Controllers\Login@login');
-Router::post('admin/login','App\Controllers\Login@loginAdmin');
-Router::get('admin/login','App\Controllers\Login@index');
-Router::get('admin/logout','App\Controllers\Login@logOutAdmin');
-Router::get('logout','App\Controllers\Login@logOut');
+Router::post('/admin/login','App\Controllers\Login@loginConsole');
+Router::get('/admin/login','App\Controllers\Login@index');
+Router::get('/admin/logout','App\Controllers\Login@logOutAdmin');
+Router::get('/logout','App\Controllers\Login@logOut');
 
 
 //Role Admin Action
-Router::get('role/getAll', 'App\Controllers\Role@getAll');
-Router::post('role/add', 'App\Controllers\Role@add');
-Router::post('role/delete', 'App\Controllers\Role@delete');
-Router::get('role/get', 'App\Controllers\Role@get');
-Router::post('role/update', 'App\Controllers\Role@update');
+Router::get('/role/getAll', 'App\Controllers\Role@getAll');
+Router::post('/role/add', 'App\Controllers\Role@add');
+Router::post('/role/delete', 'App\Controllers\Role@delete');
+Router::get('/role/get', 'App\Controllers\Role@get');
+Router::post('/role/update', 'App\Controllers\Role@update');
+
+//Faculty Admin Action
+Router::get('/faculty/getAll', 'App\Controllers\Role@getAll');
+Router::post('/faculty/add', 'App\Controllers\Role@add');
+Router::post('/faculty/delete', 'App\Controllers\Role@delete');
+Router::get('/faculty/get', 'App\Controllers\Role@get');
+Router::post('/faculty/update', 'App\Controllers\Role@update');
 
 //User Admin Action
 Router::get('user/getAll', 'App\Controllers\User@getAll');

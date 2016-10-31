@@ -23,11 +23,6 @@ class Dashboard extends Controller {
         }
     	$data['title'] = 'Dashboard';
         $data['menu'] = 'preference';
-        $data['countQuestion'] = $this->generics->countTable('questions');
-        $data['countLevel'] = $this->generics->countTable('levels');
-        $data['countExaminations'] = $this->generics->countTable('examinations');
-        $data['countNew'] = $this->generics->countTable('news');
-        //$data['levels'] = $this->levels->getAll();
     	View::renderTemplate('header', $data);
         View::render('AdminDashboard/Dashboard', $data);
         View::renderTemplate('footer', $data);

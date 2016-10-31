@@ -15,7 +15,7 @@ $(function() {
 			username:{
 				required:true,
 				remote : {
-					url : '/cat-prj/user/checkUser',
+					url : '/ewsd2016/user/checkUser',
 					type : 'GET',
 					data : {
 						username : function(){
@@ -41,7 +41,7 @@ $(function() {
 			email :{
 				required : true,
 				remote : {
-					url : '/cat-prj/user/checkEmail',
+					url : '/ewsd2016/user/checkEmail',
 					type : 'GET',
 					data : {
 						email : function(){
@@ -124,7 +124,7 @@ function getRole(id) {
 	}
 	else{
 		$.ajax({
-			url : "/cat-prj/role/get",
+			url : "/ewsd2016/role/get",
 			type : "GET",
 			data : {
 				itemId : id
@@ -149,7 +149,7 @@ function getRole(id) {
 function displayTable() {
 	var dataItems = [];
 	$.ajax({
-		url : "/cat-prj/user/getAll",
+		url : "/ewsd2016/user/getAll",
 		type : "GET",
 		dataType : "JSON",
 		success : function(response) {
@@ -199,7 +199,7 @@ function displayTable() {
 
 function getItem(id) {
 	$.ajax({
-		url : "/cat-prj/user/get",
+		url : "/ewsd2016/user/get",
 		type : "GET",
 		data : {
 			itemId : id
@@ -237,7 +237,7 @@ function getItem(id) {
 function deleteItem(id) {
 	if (confirm("Are you sure you want to proceed?") == true) {
 		$.ajax({
-			url : "/cat-prj/user/delete",
+			url : "/ewsd2016/user/delete",
 			type : "POST",
 			data : {
 				itemId : id
@@ -257,7 +257,7 @@ function update() {
 	var formData =  new FormData(form[0]);
 	if(form.valid()){
 		$.ajax({
-			url : "/cat-prj/user/update",
+			url : "/ewsd2016/user/update",
 			type : "POST",
 			data : formData,
 			contentType : false,
@@ -285,7 +285,7 @@ function insertItem() {
 	var formData =  new FormData(form[0]);
 	if(form.valid()){
 		$.ajax({
-			url : "/cat-prj/user/add",
+			url : "/ewsd2016/user/add",
 			type : "POST",
 			data : formData,
 			contentType : false,

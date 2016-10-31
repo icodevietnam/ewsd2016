@@ -31,11 +31,11 @@ class Login extends Controller{
     }
 
     //Login Admin
-    public function loginAdmin(){
+    public function loginConsole(){
     	$username = $_POST['username'];
     	$password = $_POST['password'];
 
-    	$admin = $this->users->loginAdmin($username,md5($password));
+    	$admin = $this->users->loginConsole($username,md5($password));
     	//Save Session
     	if($admin !=null){
     		Session::set('admin',$admin);

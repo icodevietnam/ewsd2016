@@ -1,27 +1,25 @@
-2016-10-28 1:12AM - opendir(/Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Modules/): failed to open dir: No such file or directory in /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Hooks.php on line 102
-
 Exception information:
 
-           Date: Oct 28, 2016 1:15AM
+           Date: Oct 31, 2016 0:14AM
 
-           Message: SQLSTATE[HY000] [2002] No such file or directory
+           Message: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'university.levels' doesn't exist
 
-           Code: 2002
+           Code: 42S02
 
            File: /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php
 
-           Line: 53
+           Line: 96
 
            Stack trace:
 
-           #0 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php(53): PDO->__construct('mysql:host=loca...', '********', '********')
-#1 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Model.php(25): Helpers\Database::get()
-#2 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Models/News.php(11): Core\Model->__construct()
-#3 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Controllers/HomeNews.php(17): App\Models\News->__construct()
-#4 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(185): App\Controllers\HomeNews->__construct()
-#5 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(224): Core\Router->invokeController('App\\Controllers...', 'news', Array)
+           #0 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php(96): PDOStatement->execute()
+#1 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Models/Levels.php(17): Helpers\Database->select('SELECT * FROM l...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Controllers/Question.php(30): app\Models\Levels->getAll()
+#3 [internal function]: App\Controllers\Question->index()
+#4 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(193): call_user_func_array(Array, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(224): Core\Router->invokeController('App\\Controllers...', 'index', Array)
 #6 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(261): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Routes.php(117): Core\Router->dispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Routes.php(125): Core\Router->dispatch()
 #8 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/index.php(74): require('/Applications/X...')
 #9 {main}
 
@@ -29,26 +27,26 @@ Exception information:
 
 Exception information:
 
-           Date: Oct 28, 2016 1:15AM
+           Date: Oct 31, 2016 0:16AM
 
-           Message: SQLSTATE[HY000] [2002] No such file or directory
+           Message: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'university.levels' doesn't exist
 
-           Code: 2002
+           Code: 42S02
 
            File: /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php
 
-           Line: 53
+           Line: 96
 
            Stack trace:
 
-           #0 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php(53): PDO->__construct('mysql:host=loca...', '********', '********')
-#1 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Model.php(25): Helpers\Database::get()
-#2 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Models/Generics.php(10): Core\Model->__construct()
-#3 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Controllers/Dashboard.php(17): app\Models\Generics->__construct()
-#4 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(185): App\Controllers\Dashboard->__construct()
+           #0 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php(96): PDOStatement->execute()
+#1 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Models/Levels.php(17): Helpers\Database->select('SELECT * FROM l...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Controllers/Question.php(30): app\Models\Levels->getAll()
+#3 [internal function]: App\Controllers\Question->index()
+#4 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(193): call_user_func_array(Array, Array)
 #5 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(224): Core\Router->invokeController('App\\Controllers...', 'index', Array)
 #6 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(261): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Routes.php(117): Core\Router->dispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Routes.php(125): Core\Router->dispatch()
 #8 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/index.php(74): require('/Applications/X...')
 #9 {main}
 
@@ -56,26 +54,26 @@ Exception information:
 
 Exception information:
 
-           Date: Oct 28, 2016 6:53AM
+           Date: Oct 31, 2016 0:18AM
 
-           Message: SQLSTATE[HY000] [2002] No such file or directory
+           Message: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'university.levels' doesn't exist
 
-           Code: 2002
+           Code: 42S02
 
            File: /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php
 
-           Line: 53
+           Line: 96
 
            Stack trace:
 
-           #0 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php(53): PDO->__construct('mysql:host=loca...', '********', '********')
-#1 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Model.php(25): Helpers\Database::get()
-#2 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Models/Users.php(11): Core\Model->__construct()
-#3 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Controllers/Login.php(20): app\Models\Users->__construct()
-#4 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(185): App\Controllers\Login->__construct()
+           #0 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php(96): PDOStatement->execute()
+#1 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Models/Levels.php(17): Helpers\Database->select('SELECT * FROM l...')
+#2 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Controllers/Question.php(30): app\Models\Levels->getAll()
+#3 [internal function]: App\Controllers\Question->index()
+#4 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(193): call_user_func_array(Array, Array)
 #5 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(224): Core\Router->invokeController('App\\Controllers...', 'index', Array)
 #6 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(261): Core\Router->invokeObject('App\\Controllers...', Array)
-#7 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Routes.php(117): Core\Router->dispatch()
+#7 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Routes.php(125): Core\Router->dispatch()
 #8 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/index.php(74): require('/Applications/X...')
 #9 {main}
 

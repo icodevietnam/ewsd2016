@@ -3,7 +3,7 @@ namespace App\Models;
 
 use Core\Model;
 
-class Roles extends Model
+class Faculties extends Model
 {
 	
 	function __construct()
@@ -14,7 +14,7 @@ class Roles extends Model
 	function getAll(){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."role order by id desc ");
+			$data = $this->db->select("SELECT * FROM ".PREFIX."faculty order by id desc ");
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
@@ -23,7 +23,7 @@ class Roles extends Model
 
 	function add($data){
 		try {
-			$this->db->insert(PREFIX.'role',$data);
+			$this->db->insert(PREFIX.'faculty',$data);
 			return true;
 		} catch (Exception $e) {
 			
@@ -35,7 +35,7 @@ class Roles extends Model
 
 	function delete($id){
 		try {
-			$this->db->delete(PREFIX.'role',array('id' => $id));
+			$this->db->delete(PREFIX.'faculty',array('id' => $id));
 			return true;
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -46,7 +46,7 @@ class Roles extends Model
 	function get($id){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."role WHERE id =:id",array(':id' => $id));
+			$data = $this->db->select("SELECT * FROM ".PREFIX."faculty WHERE id =:id",array(':id' => $id));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
@@ -55,7 +55,7 @@ class Roles extends Model
 
 	function update($data,$where){
 		try {
-			$this->db->update(PREFIX."role",$data,$where);
+			$this->db->update(PREFIX."faculty",$data,$where);
 			return true;
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";

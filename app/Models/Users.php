@@ -14,12 +14,12 @@ class Users extends Model
 	//Get All
 
 	public function getAll(){
-		return $this->db->select("SELECT * FROM ".PREFIX."users order by id desc ");
+		return $this->db->select("SELECT * FROM ".PREFIX."user order by id desc ");
 	}
 
 	function add($data){
 		try {
-			$this->db->insert(PREFIX.'users',$data);
+			$this->db->insert(PREFIX.'user',$data);
 			return true;
 		} catch (Exception $e) {
 			
@@ -31,7 +31,7 @@ class Users extends Model
 
 	function delete($id){
 		try {
-			$this->db->delete(PREFIX.'users',array('id' => $id));
+			$this->db->delete(PREFIX.'user',array('id' => $id));
 			return true;
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -42,7 +42,7 @@ class Users extends Model
 	function checkEmail($email){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."users WHERE email =:email",array(':email' => $email));
+			$data = $this->db->select("SELECT * FROM ".PREFIX."user WHERE email =:email",array(':email' => $email));
 			if(count($data) >= 1){
 				return false;
 			}else{
@@ -57,7 +57,7 @@ class Users extends Model
 	function checkUsername($username){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."users WHERE username =:username",array(':username' => $username));
+			$data = $this->db->select("SELECT * FROM ".PREFIX."user WHERE username =:username",array(':username' => $username));
 			if(count($data) >= 1){
 				return false;
 			}else{
@@ -72,7 +72,7 @@ class Users extends Model
 	function checkPassword($password,$id){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."users WHERE password =:password AND id = :id",array(':password' => $password,':id' => $id));
+			$data = $this->db->select("SELECT * FROM ".PREFIX."user WHERE password =:password AND id = :id",array(':password' => $password,':id' => $id));
 			if(count($data) >= 1){
 				return true;
 			}else{
@@ -87,7 +87,7 @@ class Users extends Model
 	function get($id){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."users WHERE id =:id",array(':id' => $id));
+			$data = $this->db->select("SELECT * FROM ".PREFIX."user WHERE id =:id",array(':id' => $id));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
@@ -96,7 +96,7 @@ class Users extends Model
 
 	function update($data,$where){
 		try {
-			$this->db->update(PREFIX."users",$data,$where);
+			$this->db->update(PREFIX."user",$data,$where);
 			return true;
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -104,10 +104,10 @@ class Users extends Model
 		}
 	}
 
-	function loginAdmin($username,$password){
+	function loginConsole($username,$password){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT U.*, R.name as 'roleName' FROM ".PREFIX."users U, ".PREFIX."roles R  WHERE U.username = :username AND U.password = :password AND U.role = R.id AND (R.name='admin' OR R.name = 'teacher') ",array(':username' => $username,':password' => $password));
+			$data = $this->db->select("SELECT U.*, R.name as 'roleName' FROM ".PREFIX."user U, ".PREFIX."role R  WHERE U.username = :username AND U.password = :password AND U.role = R.id AND (R.code='admin' OR R.code = 'mkmng' OR R.code = 'mkcood') ",array(':username' => $username,':password' => $password));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
@@ -117,7 +117,7 @@ class Users extends Model
 	function login($username,$password){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT U.* FROM ".PREFIX."users U WHERE ( U.username = :username OR U.email = :username ) AND U.password = :password AND U.role IS NULL",array(':username' => $username,':password' => $password));
+			$data = $this->db->select("SELECT U.* FROM ".PREFIX."user U WHERE ( U.username = :username OR U.email = :username ) AND U.password = :password AND U.role IS NULL",array(':username' => $username,':password' => $password));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
