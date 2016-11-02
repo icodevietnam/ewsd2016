@@ -77,13 +77,6 @@ Router::get('user/checkUser','App\Controllers\User@checkUsernameExist');
 Router::get('user/checkPassword','App\Controllers\User@checkPasswordExist');
 Router::post('user/createStudent','App\Controllers\User@createStudent');
 
-//Level Admin Action
-Router::get('level/getAll', 'App\Controllers\Level@getAll');
-Router::post('level/add', 'App\Controllers\Level@add');
-Router::post('level/delete', 'App\Controllers\Level@delete');
-Router::get('level/get', 'App\Controllers\Level@get');
-Router::post('level/update', 'App\Controllers\Level@update');
-
 //Notification Admin Action
 Router::get('notification/getAll', 'App\Controllers\Notification@getAll');
 Router::post('notification/add', 'App\Controllers\Notification@addNotification');
