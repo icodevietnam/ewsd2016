@@ -94,6 +94,16 @@ class Users extends Model
 		return $data;
 	}
 
+	function getUserByCode($code){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."user WHERE code =:code",array(':code' => $code));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
 	function update($data,$where){
 		try {
 			$this->db->update(PREFIX."user",$data,$where);

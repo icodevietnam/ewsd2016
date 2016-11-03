@@ -1,5 +1,5 @@
 $(function() {
-	displayTable();
+	getUserByRole();
 	$(".dateInput").datepicker();
 
 	$("#newItemForm .avatar").change(function(){
@@ -9,6 +9,10 @@ $(function() {
 	$("#updateItemForm .avatar").change(function(){
     	previewImage2(this);
 	});
+
+	$(".chooseRole").on('change', function(){
+		getUserByRole();
+  	});
 
 	$("#newItemForm").validate({
 		rules : {
@@ -146,12 +150,21 @@ function getRole(id) {
 	return roleName;
 }
 
+function getUserByRole(){
+	displayTable();
+}
+
 function displayTable() {
 	var dataItems = [];
+	var code = $(".chooseRole").find("option:selected").val();
+	alert(code);
 	$.ajax({
-		url : "/ewsd2016/user/getAll",
+		url : "/ewsd2016/user/getUserByCode",
 		type : "GET",
 		dataType : "JSON",
+		data : {
+			code : code
+		},
 		success : function(response) {
 			var i = 0;
 			$.each(response, function(key, value) {

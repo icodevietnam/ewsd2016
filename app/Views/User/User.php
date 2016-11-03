@@ -6,6 +6,17 @@
 					<h2><?= $title ?></h2>
 				</a>
 				<button data-toggle="modal" data-target="#newItem"class="btn btn-sm btn-primary">Create</button>
+				<div id='roleCombobox' class="row form-group">
+					<div class="col-sm-3">
+						<select class='selectpicker chooseRole combobox' name='role' data-style='white' data-width="100%">
+							<?php 
+								foreach ($roles as $key => $value) {
+									echo "<option value=".$value->code.">".$value->name."</option>";
+								}
+							?>
+						</select>
+					</div>
+				</div>
 				<div class="table-responsive">
 					<table id="tblItems"
 							class="table table-bordered table-hover table-striped">

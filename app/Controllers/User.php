@@ -64,6 +64,11 @@ class User extends Controller {
         echo json_encode($this->users->get($id));
     }
 
+    public function getUserByCode(){
+        $code = $_GET['code'];
+        echo json_encode($this->users->getUserByCode($code));
+    }
+
 
     public function update(){
         $id = $_POST['id'];

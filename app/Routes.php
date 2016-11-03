@@ -68,6 +68,7 @@ Router::post('/faculty/update', 'App\Controllers\Role@update');
 
 //User Admin Action
 Router::get('user/getAll', 'App\Controllers\User@getAll');
+Router::get('user/getUserByCode', 'App\Controllers\User@getUserByCode');
 Router::post('user/add', 'App\Controllers\User@add');
 Router::post('user/delete', 'App\Controllers\User@delete');
 Router::get('user/get', 'App\Controllers\User@get');
