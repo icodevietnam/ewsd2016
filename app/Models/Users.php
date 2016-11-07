@@ -97,12 +97,24 @@ class Users extends Model
 	function getUserByCode($code){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."user WHERE code =:code",array(':code' => $code));
+			$data = $this->db->select("SELECT U.*, R.id as roleId, R.name as roleName FROM ".PREFIX."user U, ".PREFIX." role R  WHERE R.code =:code AND U.role = R.id ",array(':code' => $code));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
 		return $data;
 	}
+
+	function getCoordinatorWithoutManage($code){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT U.*, R.id as roleId, R.name as roleName FROM ".PREFIX."user U, ".PREFIX." role R  WHERE R.code =:code AND U.role = R.id AND U.id NOT IN (SELECT mkt_coor FROM faculty ) ",array(':code' => $code));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
+
 
 	function update($data,$where){
 		try {

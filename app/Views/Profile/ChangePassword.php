@@ -26,6 +26,7 @@
 							</div>
 						</div>
 						<div class="form-group">
+							<span class="alert-info"></span>
 							<span class="alert-danger"></span>
 						</div>
 					<div class="modal-footer">

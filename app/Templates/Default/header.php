@@ -83,7 +83,8 @@
                 <li class="user <?php if($menu == 'preference') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
                     class="nav-label">General</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="<?=DIR;?>admin/dashboard">Dashboard</a></li>
+                        <li><a href="<?=DIR;?>admin/statistics">Statistics</a></li>
+                        <li><a href="<?=DIR;?>admin/reports">Reports</a></li>
                     </ul>
                 </li>
                 <li class="user <?php if($menu == 'user') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
@@ -93,11 +94,11 @@
                         <li><a href="<?=DIR;?>admin/role">Manage Roles</a></li>
                     </ul>
                 </li>
-                <li class="user <?php if($menu == 'user') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
+                <li class="user <?php if($menu == 'faculty') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
                     class="nav-label">Manage Contribution</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="<?=DIR;?>admin/faculty">Manage Facuties</a></li>
-                       
+                        <li><a href="<?=DIR;?>admin/entry">Manage Entry</a></li>
                     </ul>
                 </li>
             </ul>

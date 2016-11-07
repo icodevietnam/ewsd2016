@@ -9,27 +9,13 @@ $router = Router::getInstance();
 
 /** Define static routes. */
 
-Router::get('/news','App\Controllers\HomeNews@news');
-Router::get('/exam','App\Controllers\HomeExam@exam');
-Router::get('/notifications','App\Controllers\HomeNews@notifications');
-Router::get('/home','App\Controllers\HomeIndex@index');
-
-Router::get('/test','App\Controllers\HomeExam@test');
-Router::get('/code','App\Controllers\HomeExam@testByCode');
-Router::get('/review','App\Controllers\HomeExam@reviewByCode');
-
-Router::post('/test/markTest','App\Controllers\HomeExam@markTest');
-
-Router::get('/history','App\Controllers\HomeHistory@index');
-
-Router::get('/answer/getAnswer','App\Controllers\Question@getAnswer');
-Router::get('/answer/checkAnswer','App\Controllers\Question@checkAnswer');
 
 // Default Routing
 Router::any('/admin/user', 'App\Controllers\User@index');
 Router::any('/admin/role', 'App\Controllers\Role@index');
 Router::any('/admin/level', 'App\Controllers\Level@index');
-Router::any('/admin/dashboard', 'App\Controllers\Dashboard@index');
+Router::any('/admin/statistics', 'App\Controllers\Dashboard@index');
+Router::any('/admin/reports', 'App\Controllers\Dashboard@reports');
 Router::any('/admin','App\Controllers\Dashboard@index');
 Router::any('/admin/','App\Controllers\Dashboard@index');
 Router::get('/admin/notification', 'App\Controllers\Notification@index');
@@ -60,11 +46,11 @@ Router::get('/role/get', 'App\Controllers\Role@get');
 Router::post('/role/update', 'App\Controllers\Role@update');
 
 //Faculty Admin Action
-Router::get('/faculty/getAll', 'App\Controllers\Role@getAll');
-Router::post('/faculty/add', 'App\Controllers\Role@add');
-Router::post('/faculty/delete', 'App\Controllers\Role@delete');
-Router::get('/faculty/get', 'App\Controllers\Role@get');
-Router::post('/faculty/update', 'App\Controllers\Role@update');
+Router::get('/faculty/getAll', 'App\Controllers\Faculty@getAll');
+Router::post('/faculty/add', 'App\Controllers\Faculty@add');
+Router::post('/faculty/delete', 'App\Controllers\Faculty@delete');
+Router::get('/faculty/get', 'App\Controllers\Faculty@get');
+Router::post('/faculty/update', 'App\Controllers\Faculty@update');
 
 //User Admin Action
 Router::get('user/getAll', 'App\Controllers\User@getAll');

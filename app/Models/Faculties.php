@@ -5,7 +5,7 @@ use Core\Model;
 
 class Faculties extends Model
 {
-	
+
 	function __construct()
 	{	
 		parent::__construct();
@@ -26,7 +26,6 @@ class Faculties extends Model
 			$this->db->insert(PREFIX.'faculty',$data);
 			return true;
 		} catch (Exception $e) {
-			
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 			return false;
 		}
@@ -51,6 +50,21 @@ class Faculties extends Model
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
 		return $data;
+	}
+
+	function getFacultiesByCoordinator($mktCoor){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."faculty WHERE mkt_coor =:mktCoor",array(':mktCoor' => $mktCoor));
+			if(count($data) >= 1){
+				return false;
+			}else{
+				return true;
+			}
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+			return true;
+		}
 	}
 
 	function update($data,$where){

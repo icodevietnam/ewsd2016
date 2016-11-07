@@ -104,12 +104,17 @@ class Config
         /**
          * Database password.
          */
-        define('DB_PASS', 'root');
+        define('DB_PASS', '');
 
         /**
          * PREFER to be used in database calls default is smvc_
          */
         define('PREFIX', '');
+
+        /**
+         * PREFER to be used in database calls default is smvc_
+         */
+        define('HOMENAME', 'Contributor Portal');
 
         /**
          * Set prefix for sessions.

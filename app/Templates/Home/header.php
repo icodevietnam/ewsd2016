@@ -1,89 +1,77 @@
 <!DOCTYPE html>
-<html lang="<?php echo LANGUAGE_CODE; ?>">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title><?php echo $title.' - '.SITETITLE;?></title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <?php
-    echo $meta;//place to pass data / plugable hook zone
-    Assets::css([
-        Url::templateHomePath().'css/materialize.min.css',
-        Url::templateHomePath().'css/style.css',
-    ]);
-    echo $css; //place to pass data / plugable hook zone
-    ?>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <?php
-        Assets::js([
-        Url::templatePath().'js/jquery-2.1.1.js',
-        Url::templatePath().'js/moment.js',
-        Url::templatePath().'js/tinymce/tinymce.min.js',
-        Url::templatePath().'js/tinymce/jquery.tinymce.min.js',
-        Url::templatePath().'js/jquery.validate.js'
-    ]);
+        echo $meta;//place to pass data / plugable hook zone
+        Assets::css([
+            Url::templateHomePath().'vendor/bootstrap/css/bootstrap.min.css',
+            Url::templateHomePath().'vendor/font-awesome/css/font-awesome.min.css',
+            Url::templateHomePath().'css/agency.min.css',
+        ]);
+        echo $css; //place to pass data / plugable hook zone
     ?>
+
 </head>
-<body>
-    <nav class="orange darken-4" role="navigation">
-        <div class="nav-wrapper container">
-            <?php 
-                if(Session::get('user')[0]->username == '')
-                {
-            ?>
-            <ul class="right hide-on-med-and-down">
-                <li><a class="sign-in-modal modal-trigger" data-target="signup" >Sign In</a></li>
-                <li><a class="sign-up-modal modal-trigger" data-target="signup" >Sign Up</a></li>
-            </ul>
-            <?php 
-                }
-            ?>
-            <?php 
-                if(Session::get('user')[0]->username != '')
-                {
-            ?>
-            <ul class="right">
-                <li>
-                    <a class="dropdown-button active" data-activates="dropdown2">
-                            <img class="circle" style="width: 45px; vertical-align: middle" src="<?php echo Session::get('user')[0]->avatar ?>">
-                            <?php echo Session::get('user')[0]->fullname ?>
-                    </a>
-                    <ul id="dropdown2" class="dropdown-content active" style="white-space: nowrap; position: absolute; top: 56px; left: 1126.59px; opacity: 1; display: block;">     
-                        <li style="width: 100%"><a href="<?=DIR;?>logout">Đăng xuất</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <?php 
-                }
-            ?>
-        </div>
-    </nav>
-    <nav class="black" role="navigation">
-        <div class="nav-wrapper container">
-          <a id="white-text logo-container" href="<?=DIR;?>home" class="brand-logo">English Club</a>
-          <ul class="right hide-on-med-and-down">
-            <li><a href="<?=DIR;?>home">Home</a></li>
-            <?php 
-                if(Session::get('user')[0]->username != '')
-                {
-            ?>
-            <li><a href="<?=DIR;?>exam">Examination</a></li>
-            <li><a href="<?=DIR;?>history">History</a></li>
-            <?php 
-                }
-            ?>
-            <li><a href="<?=DIR;?>news">News</a></li>
-            <li><a href="<?=DIR;?>notifications">Notifications</a></li>
-            <li><a href="<?=DIR;?>about-us">About Us</a></li>
-          </ul>
 
-          <ul id="nav-mobile" class="side-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Examination</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Notifications</a></li>
-            <li><a href="#">About Us</a></li>
-          </ul>
-          <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+<body id="page-top" class="index">
+<!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top"><?= HOMENAME ?></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="home">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Service</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
+        <!-- /.container-fluid -->
     </nav>
+
+    <header style="background-image: url(<?= $banner ?>);">
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">Welcome To Our Studio!</div>
+                <div class="intro-heading">It's Nice To Meet You</div>
+                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            </div>
+        </div>
+    </header>

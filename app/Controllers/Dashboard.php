@@ -21,10 +21,21 @@ class Dashboard extends Controller {
         if(Session::get('admin') == null){
             Url::redirect('admin/login');
         }
-    	$data['title'] = 'Dashboard';
+    	$data['title'] = 'Statistics';
         $data['menu'] = 'preference';
     	View::renderTemplate('header', $data);
-        View::render('AdminDashboard/Dashboard', $data);
+        View::render('AdminDashboard/Statistics', $data);
+        View::renderTemplate('footer', $data);
+    }
+
+    public function reports(){
+        if(Session::get('admin') == null){
+            Url::redirect('admin/login');
+        }
+        $data['title'] = 'Reports';
+        $data['menu'] = 'preference';
+        View::renderTemplate('header', $data);
+        View::render('AdminDashboard/Reports', $data);
         View::renderTemplate('footer', $data);
     }
 

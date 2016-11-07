@@ -157,7 +157,6 @@ function getUserByRole(){
 function displayTable() {
 	var dataItems = [];
 	var code = $(".chooseRole").find("option:selected").val();
-	alert(code);
 	$.ajax({
 		url : "/ewsd2016/user/getUserByCode",
 		type : "GET",

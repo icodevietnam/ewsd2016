@@ -22,7 +22,7 @@ class Login extends Controller{
 
     public function index(){
     	if(Session::get('admin') != null){
-    		Url::redirect('admin/dashboard');
+    		Url::redirect('admin/statistics');
     	}
     	$data['title'] = 'Login';
     	View::renderTemplate('header', $data,'login');
@@ -39,7 +39,7 @@ class Login extends Controller{
     	//Save Session
     	if($admin !=null){
     		Session::set('admin',$admin);
-    		Url::redirect('admin/dashboard');
+    		Url::redirect('admin/statistics');
     	}
     	else{
             $data['err'] = "Username and password was wrong.";

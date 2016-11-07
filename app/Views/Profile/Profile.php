@@ -34,6 +34,7 @@
 					</div>
 					<div class="form-group">
 						<span class="alert-danger"></span>
+						<span class="alert-info"></span>
 					</div>
 				<div class="modal-footer">
 					<button type="button" onclick="changeProfile();" class="btn btn-primary">Change Profile</button>

@@ -56,10 +56,10 @@ class Profile extends Controller {
         }
 
         $where = array('id' => $id);
-        $this->users->update($data,$where);
+        $update = $this->users->update($data,$where);
         $admin = $this->users->get($id);
         Session::set('admin',$admin);
-        echo json_encode($admin);
+        echo json_encode($update);
     }
 
     public function changeMyPassword(){

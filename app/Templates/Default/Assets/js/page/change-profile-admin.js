@@ -49,9 +49,13 @@ function changeProfile(){
 			processData : false,
 			dataType : "JSON",
 			success : function(response) {
+				if(response == true){
+					$('.alert-info').text("Change Profile Successfully.").show().delay(5000).fadeOut();
+				}else{
+					$('.alert-danger').text("Change Profile Fail.").show().delay(5000).fadeOut();
+				}
 			},
 			complete:function(){
-				$('.alert-danger').text("Change Profile Successfully").show().delay(5000).fadeOut();
 			},
 			error: function (request, status, error) {
         	alert(request.responseText);

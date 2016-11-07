@@ -56,18 +56,14 @@ var changePasswordForm = {
 				processData : false,
 				dataType : "JSON",
 				success : function(response) {
+					if(response == true){
+						$('.alert-info').text("Change Password Successfully.").show().delay(5000).fadeOut();
+					}else{
+						$('.alert-danger').text("Change Password Fail.").show().delay(5000).fadeOut();
+					}
 				},
 				complete:function(){
-					$('.alert-danger').text("Change Your Password Successfully").show().delay(5000).fadeOut();
-					/*displayTable();
-					$("#updateItemForm .id").val(" ");
-					$("#updateItemForm .username").val(" ");
-					$("#updateItemForm .password").val(" ");
-					$("#updateItemForm .confirmPassword").val(" ");
-					$("#updateItemForm .fullName").val(" ");
-					$("#updateItemForm .birthDate").val(" ");
-					$("#updateItemForm .email").val(" ");
-					$("#updateItem").modal("hide");*/
+					
 				}
 			});
 		}

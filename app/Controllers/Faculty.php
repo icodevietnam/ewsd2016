@@ -9,11 +9,14 @@ use Helpers\Session;
 class Faculty extends Controller {	
 
 	private $faculties;
+    private $years;
+    private $users;
 
 	public function __construct()
     {
         parent::__construct();
         $this->faculties = new \App\Models\Faculties();
+        $this->users=  new \App\Models\Users();
     }
 
     public function index(){
@@ -21,7 +24,11 @@ class Faculty extends Controller {
             Url::redirect('admin/login');
         }
     	$data['title'] = 'Faculty Management';
-        $data['menu'] = 'user';
+        $data['menu'] = 'faculty';
+        $currentYear = date('Y');
+        $years = array($currentYear,$currentYear - 1);
+        $data['years'] = $years;
+        $data['mkcoor'] = $this->users->getCoordinatorWithoutManage('mkcoor');
     	View::renderTemplate('header', $data);
         View::render('Faculty/Faculty', $data);
         View::renderTemplate('footer', $data);
@@ -35,7 +42,9 @@ class Faculty extends Controller {
     	$name = $_POST['name'];
     	$description = $_POST['description'];
         $code = $_POST['code'];
-    	$data = array('name' => $name,'description' => $description,'code' => $code);
+        $year = $_POST['year'];
+        $mkcoor = $_POST['mkcoor'];
+    	$data = array('name' => $name,'description' => $description,'code' => $code,'year' => $year,'mkt_coor' => $mkcoor);
     	echo json_encode($this->faculties->add($data));
     }
 
@@ -54,10 +63,11 @@ class Faculty extends Controller {
     	$name = $_POST['name'];
     	$description = $_POST['description'];
         $code = $_POST['code'];
-        
+        $year = $_POST['year'];
+        $mkcoor = $_POST['mkcoor'];
     	$id = $_POST['id'];
 
-    	$data = array('name' => $name,'description' => $description,'code' => $code);
+    	$data = array('name' => $name,'description' => $description,'code' => $code,'year' => $year,'mkt_coor' => $mkcoor);
     	$where = array('id' => $id);
 
     	echo json_encode($this->faculties->update($data,$where));

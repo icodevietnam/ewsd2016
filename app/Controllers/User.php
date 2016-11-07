@@ -47,9 +47,9 @@ class User extends Controller {
         $fileName = $_FILES['avatar']['name'];
 
         if("" === $fileName){
-            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $role);
+            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $role);
         }else{
-            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => $avatar ,'role' => $role );
+            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'avatar' => $avatar ,'role' => $role );
         }
         echo json_encode($this->users->add($data));
     }
@@ -82,9 +82,9 @@ class User extends Controller {
         $role = $_POST['role'];
         $fileName = $_FILES['avatar']['name'];
         if("" === $fileName){
-            $data = array('username' => $username,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'role' => $role);
+            $data = array('username' => $username,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'role' => $role);
         }else{
-            $data = array('username' => $username,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => $avatar,'role' => $role );
+            $data = array('username' => $username,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'avatar' => $avatar,'role' => $role );
         }
 
         $where = array('id' => $id);
@@ -122,9 +122,9 @@ class User extends Controller {
         $fileName = $_FILES['avatar']['name'];
 
         if("" === $fileName){
-            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => 'http://localhost/cat-prj/assets/images/default.png');
+            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'avatar' => 'http://localhost/cat-prj/assets/images/default.png');
         }else{
-            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birthdate' => $birthDate,'email' => $email,'avatar' => $avatar );
+            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'avatar' => $avatar );
         }
 
         $user = $this->users->add($data);

@@ -25,12 +25,12 @@
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 				</button>
-				<h4 class="modal-title" id="myModalLabel">Add Role</h4>
+				<h4 class="modal-title" id="myModalLabel">Add Faculty</h4>
 			</div>
 			<form id="newItemForm" class="form-horizontal" method="POST">
 				<div class="modal-body">
 					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Name</label>
+						<label for="name" class="col-sm-2 control-label">Name - Short Name</label>
 						<div class="col-sm-10">
 							<input type="text" class="name form-control" name="name" >
 						</div>
@@ -44,13 +44,37 @@
 					<div class="form-group">
 						<label for="code" class="col-sm-2 control-label">Code</label>
 						<div class="col-sm-10">
-						<input type="text" class="code form-control" name="code" >
+						<input type="text" readonly class="code form-control" name="code" >
 						</div>
 					</div>
+					<div class="form-group">
+						<label for="year" class="col-sm-2 control-label">Year</label>
+						<div class="col-sm-10">
+							<select class='selectpicker year' name='year' >
+								<?php 
+									foreach ($years as $value) {
+										echo "<option value=".$value.">".$value."</option>";
+									}
+								?>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="year" class="col-sm-2 control-label">Marketing Coordinator</label>
+						<div class="col-sm-10">
+							<select class='selectpicker mkcoor' name='mkcoor' >
+								<?php 
+									foreach ($mkcoor as $value) {
+										echo "<option value=".$value->id.">".$value->username." - ".$value->roleName."</option>";
+									}
+								?>
+							</select>
+						</div>
 					</div>
 				<div class="modal-footer">
 					<button type="button" onclick="insertItem();" class="btn btn-primary">Save</button>
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
 				</div>
 			</form>
 		</div>
@@ -86,9 +110,33 @@
 								<div class="form-group">
 									<label for="code" class="col-sm-2 control-label">Code</label>
 									<div class="col-sm-10">
-									<input type="text" class="code form-control" name="code" >
+									<input type="text" readonly="" class="code form-control" name="code" >
 									</div>
 								</div>
+								<div class="form-group">
+						<label for="year" class="col-sm-2 control-label">Year</label>
+						<div class="col-sm-10">
+							<select class='selectpicker year' name='year' >
+								<?php 
+									foreach ($years as $value) {
+										echo "<option value=".$value.">".$value."</option>";
+									}
+								?>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="year" class="col-sm-2 control-label">Marketing Coordinator</label>
+						<div class="col-sm-10">
+							<select class='selectpicker mkcoor' name='mkcoor' >
+								<?php 
+									foreach ($mkcoor as $value) {
+										echo "<option value=".$value->id.">".$value->username." - ".$value->roleName."</option>";
+									}
+								?>
+							</select>
+						</div>
+					</div>
 				</div>
 				<div class="modal-footer">
 						<button type="button" onclick="update();" class="btn btn-primary">Edit</button>
@@ -101,6 +149,6 @@
 
 <?php
 Assets::js([
-	Url::templatePath().'js/page/role-admin.js'
+	Url::templatePath().'js/page/faculty-admin.js'
 ]);
 ?>
