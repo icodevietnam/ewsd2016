@@ -35,7 +35,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><?= HOMENAME ?></a>
+                <a class="navbar-brand page-scroll" href="home"><?= HOMENAME ?></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -47,17 +47,16 @@
                     <li>
                         <a class="page-scroll" href="home">Home</a>
                     </li>
+                    <?php 
+                        foreach ($listFaculties as $faculty) {
+                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='".$faculty->code."'>".$faculty->name."</a></li>";
+                        }
+                    ?>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="contact-us">Contact Us</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#team">Service</a>
-                    </li>
-                    <li>
-                        <a class="page-scroll" href="#contact">About Us</a>
+                        <a class="page-scroll" href="home">Login</a>
                     </li>
                 </ul>
             </div>
@@ -69,9 +68,8 @@
     <header style="background-image: url(<?= $banner ?>);">
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">Welcome To Our Studio!</div>
-                <div class="intro-heading">It's Nice To Meet You</div>
-                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                <div class="intro-lead-in"><?= $lead ?></div>
+                <div class="intro-heading"><?= $slogan ?></div>
             </div>
         </div>
     </header>

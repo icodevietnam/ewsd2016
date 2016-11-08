@@ -52,6 +52,16 @@ class Faculties extends Model
 		return $data;
 	}
 
+	function getFacultiesByYear($year){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."faculty WHERE year =:year ORDER BY description ",array(':year' => $year));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
 	function getFacultiesByCoordinator($mktCoor){
 		$data = null;
 		try {

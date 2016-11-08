@@ -27,7 +27,7 @@ Router::get('/admin/change-password', 'App\Controllers\Profile@changePassword');
 Router::post('/user/change-profile','App\Controllers\Profile@updateProfile');
 Router::post('/user/changeMyPassword','App\Controllers\Profile@changeMyPassword');
 Router::get('/home','App\Controllers\HomeIndex@index');
-Router::get('/about-us','App\Controllers\HomeAbout@index');
+Router::get('/contact-us','App\Controllers\HomeIndex@aboutUsPage');
 Router::get('/','App\Controllers\HomeIndex@index');
 
 //Login Admin
