@@ -62,6 +62,16 @@ class Faculties extends Model
 		return $data;
 	}
 
+	function getFacultyByCode($code){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."faculty WHERE code =:code ",array(':code' => $code));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data[0];
+	}
+
 	function getFacultiesByCoordinator($mktCoor){
 		$data = null;
 		try {

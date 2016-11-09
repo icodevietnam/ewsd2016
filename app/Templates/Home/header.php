@@ -49,14 +49,14 @@
                     </li>
                     <?php 
                         foreach ($listFaculties as $faculty) {
-                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='".$faculty->code."'>".$faculty->name."</a></li>";
+                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='contribute/".$faculty->code."'>".$faculty->name."</a></li>";
                         }
                     ?>
                     <li>
                         <a class="page-scroll" href="contact-us">Contact Us</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="home">Login</a>
+                        <a class="page-scroll" href="login">Login</a>
                     </li>
                 </ul>
             </div>

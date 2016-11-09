@@ -43,10 +43,52 @@ class HomeIndex extends Controller {
         View::renderTemplate('footer', $data,'home');
     }
 
+    public function facultyPage($code){
+        $faculty = $this->faculties->getFacultyByCode($code);
+        if(count($faculty)!=0){
+            $data['title'] = $faculty->code;
+            $data['lead'] = $faculty->name;
+            $data['slogan'] = $faculty->description;
+            $data['banner'] = Url::imgPath().'library-banner.jpg';
+            $currentYear = date('Y');
+            $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
+            $data['listFaculties'] = $listFaculties;
+            View::renderTemplate('header', $data,'home');
+            View::render('Home/Faculty', $data);
+            View::renderTemplate('footer', $data,'home');
+        }
+    }
 
-    private function facultiesByYear($year){
-        $listFaculties = $this->faculties->getFacultiesByYear($year);
-        return listFaculties;
+    public function loginAndSignUpPage(){
+        $faculty = $this->faculties->getFacultyByCode($code);
+        if(count($faculty)!=0){
+            $data['title'] = 'Contact Us';
+            $data['lead'] = "Contact Us";
+            $data['slogan'] = "Connecting People";
+            $data['banner'] = Url::imgPath().'library-banner.jpg';
+            $currentYear = date('Y');
+            $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
+            $data['listFaculties'] = $listFaculties;
+            View::renderTemplate('header', $data,'home');
+            View::render('Home/LoginPage', $data);
+            View::renderTemplate('footer', $data,'home');
+        }
+    }
+
+    public function viewEntry(){
+        $faculty = $this->faculties->getFacultyByCode($code);
+        if(count($faculty)!=0){
+            $data['title'] = 'Contact Us';
+            $data['lead'] = "Contact Us";
+            $data['slogan'] = "Connecting People";
+            $data['banner'] = Url::imgPath().'library-banner.jpg';
+            $currentYear = date('Y');
+            $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
+            $data['listFaculties'] = $listFaculties;
+            View::renderTemplate('header', $data,'home');
+            View::render('Home/ViewEntry', $data);
+            View::renderTemplate('footer', $data,'home');
+        }
     }
 
 

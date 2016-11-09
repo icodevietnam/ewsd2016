@@ -30,12 +30,18 @@ Router::get('/home','App\Controllers\HomeIndex@index');
 Router::get('/contact-us','App\Controllers\HomeIndex@aboutUsPage');
 Router::get('/','App\Controllers\HomeIndex@index');
 
+//Login User
+Router::get('/user/login', 'App\Controllers\HomeIndex@loginAndSignUpPage');
+
 //Login Admin
 Router::post('login', 'App\Controllers\Login@login');
 Router::post('/admin/login','App\Controllers\Login@loginConsole');
 Router::get('/admin/login','App\Controllers\Login@index');
 Router::get('/admin/logout','App\Controllers\Login@logOutAdmin');
 Router::get('/logout','App\Controllers\Login@logOut');
+
+//Faculty Home
+Router::get('/contribute/(:all)','App\Controllers\HomeIndex@facultyPage');
 
 
 //Role Admin Action
