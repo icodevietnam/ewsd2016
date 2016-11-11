@@ -56,7 +56,7 @@
                         <a class="page-scroll" href="contact-us">Contact Us</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="login">Login</a>
+                        <a class="page-scroll" href="user/login">Login</a>
                     </li>
                 </ul>
             </div>

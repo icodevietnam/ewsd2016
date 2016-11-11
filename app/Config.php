@@ -64,9 +64,14 @@ class Config
         define('LOGIN', 'Login');
 
         /**
+         * Set the home template.
+         */
+        define('HOME', 'Home');
+
+        /**
          * Set the default template.
          */
-        define('HOME', 'HOME');
+        define('HOMELOGIN', 'HomeLogin');
 
         /**
          * Set the site title.
