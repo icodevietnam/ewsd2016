@@ -22,7 +22,7 @@ class Config
         /**
          * Define the complete site URL.
          */
-        define('SITEURL', 'http://ewsd.dev/ewsd2016/');
+        define('SITEURL', 'http://localhost/ewsd2016/');
 
         /**
          * Define relative base path.
@@ -52,11 +52,6 @@ class Config
          * Set the default template.
          */
         define('TEMPLATE', 'Default');
-
-        /**
-         * Set the default number of question.
-         */
-        define('QUESTION', 7);
 
         /**
          * Set the default template.

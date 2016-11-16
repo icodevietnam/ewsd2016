@@ -25,9 +25,9 @@ class HomeIndex extends Controller {
         $currentYear = date('Y');
         $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
         $data['listFaculties'] = $listFaculties;
-    	View::renderTemplate('header', $data,'home');
+    	View::renderTemplate('header', $data,'Home');
         View::render('Home/Home', $data);
-        View::renderTemplate('footer', $data,'home');
+        View::renderTemplate('footer', $data,'Home');
     }
 
     public function aboutUsPage(){
@@ -38,9 +38,9 @@ class HomeIndex extends Controller {
         $currentYear = date('Y');
         $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
         $data['listFaculties'] = $listFaculties;
-        View::renderTemplate('header', $data,'home');
+        View::renderTemplate('header', $data,'Home');
         View::render('Home/AboutUs', $data);
-        View::renderTemplate('footer', $data,'home');
+        View::renderTemplate('footer', $data,'Home');
     }
 
     public function facultyPage($code){
@@ -53,9 +53,9 @@ class HomeIndex extends Controller {
             $currentYear = date('Y');
             $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
             $data['listFaculties'] = $listFaculties;
-            View::renderTemplate('header', $data,'home');
+            View::renderTemplate('header', $data,'Home');
             View::render('Home/Faculty', $data);
-            View::renderTemplate('footer', $data,'home');
+            View::renderTemplate('footer', $data,'Home');
         }
     }
 
@@ -69,9 +69,9 @@ class HomeIndex extends Controller {
             $currentYear = date('Y');
             $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
             $data['listFaculties'] = $listFaculties;
-            View::renderTemplate('header', $data,'home');
+            View::renderTemplate('header', $data,'Home');
             View::render('Home/LoginPage', $data);
-            View::renderTemplate('footer', $data,'home');
+            View::renderTemplate('footer', $data,'Home');
         }
     }
 
@@ -85,9 +85,9 @@ class HomeIndex extends Controller {
             $currentYear = date('Y');
             $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
             $data['listFaculties'] = $listFaculties;
-            View::renderTemplate('header', $data,'home');
+            View::renderTemplate('header', $data,'Home');
             View::render('Home/ViewEntry', $data);
-            View::renderTemplate('footer', $data,'home');
+            View::renderTemplate('footer', $data,'Home');
         }
     }
 
