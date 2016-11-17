@@ -24,7 +24,6 @@
     ?>
 
 </head>
-
 <body id="page-top" class="index">
 <!-- Navigation -->
     <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -34,7 +33,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="home"><?= HOMENAME ?></a>
+                <a class="navbar-brand page-scroll" href="<?= DIR ?>home"><?= HOMENAME ?></a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -44,18 +43,18 @@
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="home">Home</a>
+                        <a class="page-scroll" href="<?= DIR ?>home">Home</a>
                     </li>
                     <?php 
                         foreach ($listFaculties as $faculty) {
-                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='contribute/".$faculty->code."'>".$faculty->name."</a></li>";
+                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='<?= DIR ?>contribute/".$faculty->code."'>".$faculty->name."</a></li>";
                         }
                     ?>
                     <li>
-                        <a class="page-scroll" href="contact-us">Contact Us</a>
+                        <a class="page-scroll" href="<?= DIR ?>contact-us">Contact Us</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="user/login">Login</a>
+                        <a class="page-scroll" href="<?= DIR ?>user/login">Login</a>
                     </li>
                 </ul>
             </div>

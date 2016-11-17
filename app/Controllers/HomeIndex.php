@@ -60,19 +60,9 @@ class HomeIndex extends Controller {
     }
 
     public function loginAndSignUpPage(){
-        $faculty = $this->faculties->getFacultyByCode($code);
-        if(count($faculty)!=0){
-            $data['title'] = 'Contact Us';
-            $data['lead'] = "Contact Us";
-            $data['slogan'] = "Connecting People";
-            $data['banner'] = Url::imgPath().'library-banner.jpg';
-            $currentYear = date('Y');
-            $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
-            $data['listFaculties'] = $listFaculties;
-            View::renderTemplate('header', $data,'Home');
-            View::render('Home/LoginPage', $data);
-            View::renderTemplate('footer', $data,'Home');
-        }
+        View::renderTemplate('header',$data,HOMELOGIN);
+        View::render('Login/HomeLogin', $data);
+        View::renderTemplate('footer',$data,HOMELOGIN);
     }
 
     public function viewEntry(){
