@@ -23,9 +23,9 @@ class Dashboard extends Controller {
         }
     	$data['title'] = 'Statistics';
         $data['menu'] = 'preference';
-    	View::renderTemplate('header', $data);
+    	View::renderTemplate('header', $data,TEMPLATE);
         View::render('AdminDashboard/Statistics', $data);
-        View::renderTemplate('footer', $data);
+        View::renderTemplate('footer', $data,TEMPLATE);
     }
 
     public function reports(){
@@ -34,9 +34,9 @@ class Dashboard extends Controller {
         }
         $data['title'] = 'Reports';
         $data['menu'] = 'preference';
-        View::renderTemplate('header', $data);
+        View::renderTemplate('header', $data,TEMPLATE);
         View::render('AdminDashboard/Reports', $data);
-        View::renderTemplate('footer', $data);
+        View::renderTemplate('footer', $data,TEMPLATE);
     }
 
 

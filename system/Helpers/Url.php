@@ -100,7 +100,7 @@ class Url
         return SITEURL .'templates/' .$template .$folder;
     }
 
-    public static function templateLoginHomePath($custom =  HOMELOGIN, $folder = '/assets/')
+    public static function templateLoginHomePath($custom =  SIGNUP, $folder = '/assets/')
     {
         $template = Inflector::tableize($custom);
 

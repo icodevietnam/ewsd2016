@@ -60,9 +60,10 @@ class HomeIndex extends Controller {
     }
 
     public function loginAndSignUpPage(){
-        View::renderTemplate('header',$data,HOMELOGIN);
+        $data['title'] = 'Contribution System';
+        View::renderTemplate('header',$data,'Signup');
         View::render('Login/HomeLogin', $data);
-        View::renderTemplate('footer',$data,HOMELOGIN);
+        View::renderTemplate('footer',$data,'Signup');
     }
 
     public function viewEntry(){

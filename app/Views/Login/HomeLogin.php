@@ -7,14 +7,7 @@
                 	
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text">
-                            <h1><strong>Bootstrap</strong> Login &amp; Register Forms</h1>
-                            <div class="description">
-                            	<p>
-	                            	This is a free responsive <strong>"login and register forms"</strong> template made with Bootstrap. 
-	                            	Download it on <a href="http://azmind.com" target="_blank"><strong>AZMIND</strong></a>, 
-	                            	customize and use it as you like!
-                            	</p>
-                            </div>
+                            <h1><strong>Contribution System</strong> &amp; Register Forms</h1>
                         </div>
                     </div>
                     
@@ -24,8 +17,8 @@
                         	<div class="form-box">
 	                        	<div class="form-top">
 	                        		<div class="form-top-left">
-	                        			<h3>Login to our site</h3>
-	                            		<p>Enter username and password to log on:</p>
+	                        			<h3>Login to system</h3>
+	                            		<p>Enter username/email and password to log on:</p>
 	                        		</div>
 	                        		<div class="form-top-right">
 	                        			<i class="fa fa-key"></i>
@@ -45,21 +38,6 @@
 				                    </form>
 			                    </div>
 		                    </div>
-		                
-		                	<div class="social-login">
-	                        	<h3>...or login with:</h3>
-	                        	<div class="social-login-buttons">
-		                        	<a class="btn btn-link-1 btn-link-1-facebook" href="#">
-		                        		<i class="fa fa-facebook"></i> Facebook
-		                        	</a>
-		                        	<a class="btn btn-link-1 btn-link-1-twitter" href="#">
-		                        		<i class="fa fa-twitter"></i> Twitter
-		                        	</a>
-		                        	<a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-		                        		<i class="fa fa-google-plus"></i> Google Plus
-		                        	</a>
-	                        	</div>
-	                        </div>
 	                        
                         </div>
                         
@@ -79,25 +57,28 @@
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form role="form" action="" method="post" class="registration-form">
+				                    <form id="registerForm" role="form" action="" method="post" class="registration-form">
 				                    	<div class="form-group">
-				                    		<label class="sr-only" for="form-first-name">First name</label>
-				                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name">
+				                    		<label class="sr-only" for="form-first-name">Username</label>
+				                        	<input type="text" name="username" placeholder="Username..." class="username form-control" id="username">
 				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-last-name">Last name</label>
-				                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name">
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">Password</label>
+				                        	<input type="password" name="password" placeholder="Password..." class="password form-control" id="password">
+				                        </div>
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">Confirm Password</label>
+				                        	<input type="password" name="confirmPassword" placeholder="Confirm Password..." class="confirmPassword form-control" id="confirmPassword">
+				                        </div>
+				                    	<div class="form-group">
+				                    		<label class="sr-only" for="form-first-name">Full name</label>
+				                        	<input type="text" name="fullName" placeholder="Full name..." class="fullName form-control" id="fullName">
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Email</label>
-				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email">
+				                        	<input type="text" name="email" placeholder="Email..." class="email form-control" id="email">
 				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-about-yourself">About yourself</label>
-				                        	<textarea name="form-about-yourself" placeholder="About yourself..." 
-				                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
-				                        </div>
-				                        <button type="submit" class="btn">Sign me up!</button>
+				                        <button type="button" onclick="registerStudent();" class="btn">Sign me up!</button>
 				                    </form>
 			                    </div>
                         	</div>

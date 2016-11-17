@@ -25,9 +25,9 @@ class Login extends Controller{
     		Url::redirect('admin/statistics');
     	}
     	$data['title'] = 'Login';
-    	View::renderTemplate('header', $data,'login');
+    	View::renderTemplate('header', $data,'Login');
         View::render('Login/Login', $data);
-        View::renderTemplate('footer', $data,'login');
+        View::renderTemplate('footer', $data,'Login');
     }
 
     //Login Admin
@@ -43,9 +43,9 @@ class Login extends Controller{
     	}
     	else{
             $data['err'] = "Username and password was wrong.";
-            View::renderTemplate('header', $data,'login');
+            View::renderTemplate('header', $data,'Login');
             View::render('Login/Login', $data);
-            View::renderTemplate('footer', $data,'login');
+            View::renderTemplate('footer', $data,'Login');
     	}
     }
 

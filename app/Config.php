@@ -66,7 +66,7 @@ class Config
         /**
          * Set the default template.
          */
-        define('HOMELOGIN', 'HomeLogin');
+        define('SIGNUP', 'Signup');
 
         /**
          * Set the site title.
