@@ -63,11 +63,6 @@
 						<label for="year" class="col-sm-2 control-label">Marketing Coordinator</label>
 						<div class="col-sm-10">
 							<select class='selectpicker mkcoor' name='mkcoor' >
-								<?php 
-									foreach ($mkcoor as $value) {
-										echo "<option value=".$value->id.">".$value->username." - ".$value->roleName."</option>";
-									}
-								?>
 							</select>
 						</div>
 					</div>
@@ -129,11 +124,7 @@
 						<label for="year" class="col-sm-2 control-label">Marketing Coordinator</label>
 						<div class="col-sm-10">
 							<select class='selectpicker mkcoor' name='mkcoor' >
-								<?php 
-									foreach ($mkcoor as $value) {
-										echo "<option value=".$value->id.">".$value->username." - ".$value->roleName."</option>";
-									}
-								?>
+								
 							</select>
 						</div>
 					</div>

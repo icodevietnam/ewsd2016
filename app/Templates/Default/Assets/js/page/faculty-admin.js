@@ -126,6 +126,7 @@ function displayTable() {
 			});
 		}
 	});
+	reloadMkcoor();
 }
 
 function getItem(id) {
@@ -275,4 +276,24 @@ function previewImage2(input){
 
         reader.readAsDataURL(input.files[0]);
     }
+}
+
+
+function reloadMkcoor(){
+	$.ajax({
+			url : "/ewsd2016/user/reloadMkcoor",
+			type : "GET",
+			dataType : "JSON",
+			success : function(response) {
+				$('select.mkcoor').find('option').remove();
+				$.each(response,function(key,value){
+					$('select.mkcoor').append("<option value='"+ value.id +"' >" + value.name + "</option>");
+				})
+			},
+			complete : function(){
+			},
+			error: function (request, status, error) {
+	        	alert(request.responseText);
+	    	}
+	});
 }

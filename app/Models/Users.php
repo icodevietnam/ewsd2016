@@ -104,10 +104,14 @@ class Users extends Model
 		return $data;
 	}
 
-	function getCoordinatorWithoutManage($code){
+	function getCoordinatorWithoutManage($code,$count){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT U.*, R.id as roleId, R.name as roleName FROM ".PREFIX."user U, ".PREFIX." role R  WHERE R.code =:code AND U.role = R.id AND U.id NOT IN (SELECT mkt_coor FROM faculty ) ",array(':code' => $code));
+			$query = " SELECT U.*, R.id as roleId, R.name as roleName FROM ".PREFIX."user U, ".PREFIX." role R  WHERE R.code =:code AND U.role = R.id ";
+			if($count > 0){
+				$query.= " AND U.id NOT IN ( SELECT mkt_coor FROM faculty )";
+			}
+			$data = $this->db->select($query,array(':code' => $code));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}

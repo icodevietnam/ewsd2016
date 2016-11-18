@@ -1,0 +1,49 @@
+2016-11-18 16:55PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 16:56PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 16:56PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 16:56PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 17:00PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 17:00PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 17:00PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 17:03PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+Exception information:
+
+           Date: Nov 18, 2016 17:10PM
+
+           Message: SQLSTATE[42000]: Syntax error or access violation: 1065 Query was empty
+
+           Code: 42000
+
+           File: /opt/lampp/htdocs/ewsd2016/system/Helpers/Database.php
+
+           Line: 96
+
+           Stack trace:
+
+           #0 /opt/lampp/htdocs/ewsd2016/system/Helpers/Database.php(96): PDOStatement->execute()
+#1 /opt/lampp/htdocs/ewsd2016/app/Models/Users.php(114): Helpers\Database->select(NULL, Array)
+#2 /opt/lampp/htdocs/ewsd2016/app/Controllers/Faculty.php(32): app\Models\Users->getCoordinatorWithoutManage('mkcoor', 1)
+#3 [internal function]: App\Controllers\Faculty->index()
+#4 /opt/lampp/htdocs/ewsd2016/system/Core/Router.php(193): call_user_func_array(Array, Array)
+#5 /opt/lampp/htdocs/ewsd2016/system/Core/Router.php(224): Core\Router->invokeController('App\\Controllers...', 'index', Array)
+#6 /opt/lampp/htdocs/ewsd2016/system/Core/Router.php(261): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /opt/lampp/htdocs/ewsd2016/app/Routes.php(111): Core\Router->dispatch()
+#8 /opt/lampp/htdocs/ewsd2016/index.php(74): require('/opt/lampp/htdo...')
+#9 {main}
+
+           ---------
+
+2016-11-18 17:50PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 17:50PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+
+2016-11-18 17:50PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Faculty/Faculty.php on line 67
+

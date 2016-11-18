@@ -98,7 +98,7 @@
                     class="nav-label">Manage Contribution</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="<?=DIR;?>admin/faculty">Manage Facuties</a></li>
-                        <li><a href="<?=DIR;?>admin/entry">Manage Entry</a></li>
+                        <li><a href="<?=DIR;?>admin/entry">Manage Entries</a></li>
                     </ul>
                 </li>
             </ul>

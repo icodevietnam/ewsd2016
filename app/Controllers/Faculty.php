@@ -28,10 +28,15 @@ class Faculty extends Controller {
         $currentYear = date('Y');
         $years = array($currentYear,$currentYear - 1);
         $data['years'] = $years;
-        $data['mkcoor'] = $this->users->getCoordinatorWithoutManage('mkcoor');
     	View::renderTemplate('header', $data);
         View::render('Faculty/Faculty', $data);
         View::renderTemplate('footer', $data);
+    }
+
+    public function reloadMkcoor(){
+        $countFaculties = $this->faculties->getAll();
+        $listMkcoor = $this->users->getCoordinatorWithoutManage('mkcoor',count($countFaculties));
+        echo json_encode($listMkcoor);
     }
 
     public function getAll(){
