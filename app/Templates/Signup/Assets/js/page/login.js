@@ -37,7 +37,7 @@ $(function(){
 					type : 'GET',
 					data : {
 						email : function(){
-							return $('#newItemForm .email').val();
+							return $('#registerForm .email').val();
 						}
 					}
 				}
@@ -46,7 +46,7 @@ $(function(){
 		messages : {
 			username:{
 				required:"Username is not blank",
-				remote : "Username is existed."
+				remote : "Username is existed. Please input another."
 			},
 			password:{
 				required:"Password is not blank",
@@ -64,17 +64,33 @@ $(function(){
 			},
 			email :{
 				required : "Email is not blank",
-				remote : "Email is existed"
+				remote : "Email is existed. Please input another."
 			}
 		},
 	});
 
 });
 
-function registerStudent(){
-	
-	var registerForm = $('#registerForm');
-	if(registerForm.valid()){
-			alert('dep trai');
+var signupForm = {
+	submit : function(){
+		var form = $('#registerForm');
+		var formData =  new FormData(form[0]);
+		if(form.valid()){
+			$.ajax({
+			url : "/ewsd2016/user/createStudent",
+			type : "POST",
+			data : formData,
+			contentType : false,
+			processData : false,
+			dataType : "JSON",
+			success : function(response) {
+				$('#registerForm .username').val('');
+				$('#registerForm .password').val('');
+				$('#registerForm .confirmPassword').val('');
+				$('#registerForm .email').val('');
+				$('#registerForm .fullname').val('');
+			},
+		});
+		}
 	}
 }

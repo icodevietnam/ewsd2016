@@ -78,7 +78,7 @@
 				                        	<label class="sr-only" for="form-email">Email</label>
 				                        	<input type="text" name="email" placeholder="Email..." class="email form-control" id="email">
 				                        </div>
-				                        <button type="button" onclick="registerStudent();" class="btn">Sign me up!</button>
+				                        <button type="button" onclick="signupForm.submit();" class="btn">Sign me up!</button>
 				                    </form>
 			                    </div>
                         	</div>

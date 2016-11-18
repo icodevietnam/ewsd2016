@@ -53,6 +53,16 @@ class Roles extends Model
 		return $data;
 	}
 
+	function getCode($code){
+		$data = null;
+		try{
+			$data = $this->db->select("SELECT * FROM ".PREFIX."role WHERE code =:code",array(':code' => $code));
+		}catch(Exception $e){
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
 	function update($data,$where){
 		try {
 			$this->db->update(PREFIX."role",$data,$where);

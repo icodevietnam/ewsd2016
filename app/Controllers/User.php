@@ -113,23 +113,13 @@ class User extends Controller {
     public function createStudent(){
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $fullName = $_POST['fullname'];
-        $birthDate = $_POST['birthDate'];
+        $fullName = $_POST['fullName'];
         $email = $_POST['email'];
-        $upload = new \Helpers\UploadCoded();
-        $avatar = $upload->upload('avatar','image');
-        $birthDate = date('Y-m-d',strtotime($birthDate));
-        $fileName = $_FILES['avatar']['name'];
-
-        if("" === $fileName){
-            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'avatar' => 'http://localhost/cat-prj/assets/images/default.png');
-        }else{
-            $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'birth_date' => $birthDate,'email' => $email,'avatar' => $avatar );
-        }
-
-        $user = $this->users->add($data);
-
-        Session::set('user',$user);
-        echo json_encode($user);
+        $currentRole =  $this->roles->getCode('student');
+        $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $currentRole['id']);
+        //$user = $this->users->add($data);
+        //Session::set('user',$user);
+        $key = "id";
+        echo json_encode($currentRole[$key]);
     }
 }
