@@ -84,11 +84,9 @@ var signupForm = {
 			processData : false,
 			dataType : "JSON",
 			success : function(response) {
-				$('#registerForm .username').val('');
-				$('#registerForm .password').val('');
-				$('#registerForm .confirmPassword').val('');
-				$('#registerForm .email').val('');
-				$('#registerForm .fullname').val('');
+				if(response===true){
+					window.location = '/ewsd2016/home';
+				}
 			},
 		});
 		}

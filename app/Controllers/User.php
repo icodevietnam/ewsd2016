@@ -116,10 +116,9 @@ class User extends Controller {
         $fullName = $_POST['fullName'];
         $email = $_POST['email'];
         $currentRole =  $this->roles->getCode('student');
-        $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $currentRole['id']);
-        //$user = $this->users->add($data);
-        //Session::set('user',$user);
-        $key = "id";
-        echo json_encode($currentRole[$key]);
+        $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $currentRole[0]->id);
+        $user = $this->users->add($data);
+        Session::set('user',$user);
+        echo json_encode($user);
     }
 }
