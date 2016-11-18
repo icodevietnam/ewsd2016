@@ -57,7 +57,7 @@ class Login extends Controller{
         $user = $this->users->login($username,md5($password));
         //Save Session
         if($user !=null){
-            Session::set('user',$user);
+            Session::set('student',$user);
             echo json_encode('home');
         }else{
             echo json_encode('false');
