@@ -94,6 +94,16 @@ class Users extends Model
 		return $data;
 	}
 
+	function getUsername($username){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."user WHERE username =:username",array(':username' => $username));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
 	function getUserByCode($code){
 		$data = null;
 		try {

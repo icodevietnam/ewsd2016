@@ -114,7 +114,7 @@ class Config
         /**
          * PREFER to be used in database calls default is smvc_
          */
-        define('HOMENAME', 'Contributor Portal');
+        define('HOMENAME', 'Contributor');
 
         /**
          * Set prefix for sessions.
@@ -141,6 +141,14 @@ class Config
          * Define upload image size   
          */
         define('SIZEIMAGE', 2048000);
+
+        /**
+         * ENTRY_STATUS
+         */
+        define('STATUS_APPROVED','approved');
+        define('STATUS_NON_APPROVED','non_approved');
+        define('STATUS_IS_REVIEWED','is_reviewed');
+        define('STATUS_CLOSE','closed');
 
         /**
          * Start sessions.

@@ -58,9 +58,12 @@ class Login extends Controller{
         //Save Session
         if($user !=null){
             Session::set('student',$user);
-            echo json_encode('home');
+            Url::redirect('home');
         }else{
-            echo json_encode('false');
+            $data['message'] =  "Can't login because username or password input wrongly.";
+            View::renderTemplate('header',$data,'Signup');
+            View::render('Login/HomeLogin', $data);
+            View::renderTemplate('footer',$data,'Signup');
         }
     }
 

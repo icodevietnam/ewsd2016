@@ -84,7 +84,7 @@ var signupForm = {
 			processData : false,
 			dataType : "JSON",
 			success : function(response) {
-				if(response===true){
+				if(response !== null){
 					window.location = '/ewsd2016/home';
 				}
 			},

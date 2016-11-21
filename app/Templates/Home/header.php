@@ -23,10 +23,39 @@
         echo $css; //place to pass data / plugable hook zone
     ?>
 
+    <?php
+        Assets::js([
+        Url::templatePath().'js/jquery-2.1.1.js',
+        Url::templatePath().'js/moment.js',
+        Url::templatePath().'js/tinymce/tinymce.min.js',
+        Url::templatePath().'js/tinymce/jquery.tinymce.min.js',
+        Url::templatePath().'js/jquery.dataTables.js',
+        Url::templatePath().'js/dataTables.bootstrap.js',
+        Url::templatePath().'js/jquery.validate.js',
+        Url::templatePath().'js/bootstrap.min.js',
+        Url::templateHomePath().'js/jqBootstrapValidation.js',
+        Url::templateHomePath().'js/contact_me.js',
+        Url::templateHomePath().'js/agency.min.js',
+        ]);
+    ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <script>
+        tinymce.init({
+            selector: ".editor",
+            statusbar: false,
+            setup: function (editor) {
+                editor.on('change', function () {
+                    tinymce.triggerSave();
+                });
+            }
+        });
+    </script>
+
 </head>
 <body id="page-top" class="index">
 <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top" style="background-color: #222;">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -47,15 +76,30 @@
                     </li>
                     <?php 
                         foreach ($listFaculties as $faculty) {
-                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='<?= DIR ?>contribute/".$faculty->code."'>".$faculty->name."</a></li>";
+                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='".DIR."contribute/".$faculty->code."'>".$faculty->name."</a></li>";
                         }
                     ?>
+                    <?php  if(Session::get('student') ==null ){ ?>
+                    <li>
+                        <a class="page-scroll" href="<?= DIR ?>user/login">Login</a>
+                    </li>
+                    <?php } else{ ?>
+                    <li>
+                        <a class="page-scroll" >Hello, [ <?= Session::get('student')[0]->username ?> ] </a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="<?= DIR ?>your-entry" >Your Entries</a>
+                    </li> 
                     <li>
                         <a class="page-scroll" href="<?= DIR ?>contact-us">Contact Us</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<?= DIR ?>user/login">Login</a>
+                    <a class="page-scroll" href="<?= DIR ?>logout" ><u>Log Out</u></a>
+                    </li>    
+                    <li>
+                        <a class="page-scroll btn btn-sm btn-primary" href="<?= DIR ?>create-entry" >Create Entry</a>
                     </li>
+                    <?php } ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

@@ -113,6 +113,16 @@ class Url
         return SITEURL .'assets/'.'uploads/';
     }
 
+    public static function entryPath()
+    {
+        return SITEURL .'assets/'.'entry/';
+    }
+
+    public static function filePath()
+    {
+        return SITEURL .'assets/'.'file/';
+    }
+
     public static function imagePath()
     {
         return SITEURL .'assets/'.'images/';

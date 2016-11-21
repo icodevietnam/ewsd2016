@@ -33,8 +33,8 @@
     Url::templatePath().'js/dataTables.bootstrap.js',
     Url::templatePath().'js/jquery.validate.js',
     Url::templatePath().'js/bootstrap.min.js',
-]);
-?>
+    ]);
+    ?>
 <script>
     tinymce.init({
         selector: "textarea",
@@ -85,6 +85,7 @@
                     <ul class="nav nav-second-level collapse">
                         <li><a href="<?=DIR;?>admin/statistics">Statistics</a></li>
                         <li><a href="<?=DIR;?>admin/reports">Reports</a></li>
+                        <li><a href="<?=DIR;?>admin/contact-us">Contact Us</a></li>
                     </ul>
                 </li>
                 <li class="user <?php if($menu == 'user') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span

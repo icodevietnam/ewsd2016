@@ -20,9 +20,9 @@ Router::any('/admin','App\Controllers\Dashboard@index');
 Router::any('/admin/','App\Controllers\Dashboard@index');
 Router::get('/admin/notification', 'App\Controllers\Notification@index');
 Router::get('/admin/news', 'App\Controllers\Notification@index2');
-Router::get('/admin/question-answer', 'App\Controllers\Question@index');
 Router::get('/admin/faculty', 'App\Controllers\Faculty@index');
 Router::get('/admin/profile', 'App\Controllers\Profile@profile');
+Router::get('/admin/contact-us', 'App\Controllers\Contact@index');
 Router::get('/admin/change-password', 'App\Controllers\Profile@changePassword');
 Router::post('/user/change-profile','App\Controllers\Profile@updateProfile');
 Router::post('/user/changeMyPassword','App\Controllers\Profile@changeMyPassword');
@@ -30,18 +30,21 @@ Router::get('/home','App\Controllers\HomeIndex@index');
 Router::get('/contact-us','App\Controllers\HomeIndex@aboutUsPage');
 Router::get('/','App\Controllers\HomeIndex@index');
 
+Router::get('/create-entry','App\Controllers\HomeIndex@createEntry');
+Router::get('/your-entry','App\Controllers\Entry@yourEntries');
 //Login User
 Router::get('/user/login', 'App\Controllers\HomeIndex@loginAndSignUpPage');
 
 //Login Admin
-Router::post('login', 'App\Controllers\Login@login');
+Router::post('/login', 'App\Controllers\Login@login');
 Router::post('/admin/login','App\Controllers\Login@loginConsole');
 Router::get('/admin/login','App\Controllers\Login@index');
 Router::get('/admin/logout','App\Controllers\Login@logOutAdmin');
 Router::get('/logout','App\Controllers\Login@logOut');
 
 //Faculty Home
-Router::get('/contribute/(:all)','App\Controllers\HomeIndex@facultyPage');
+Router::get('/contribute/(:all)','App\Controllers\Entry@facultyPage');
+Router::get('/entry/getFacultyPage','App\Controllers\Entry@getFacultyPage');
 
 
 //Role Admin Action
@@ -57,6 +60,16 @@ Router::post('/faculty/add', 'App\Controllers\Faculty@add');
 Router::post('/faculty/delete', 'App\Controllers\Faculty@delete');
 Router::get('/faculty/get', 'App\Controllers\Faculty@get');
 Router::post('/faculty/update', 'App\Controllers\Faculty@update');
+
+//Entry Admin Action
+Router::get('/entry/getAll', 'App\Controllers\Entry@getAll');
+Router::post('/entry/add', 'App\Controllers\Entry@add');
+Router::get('/entry/getEntryByStatus', 'App\Controllers\Entry@getYourEntries');
+
+
+//File Action
+Router::post('/file/checkDocument', 'App\Controllers\File@checkDocument');
+Router::post('/file/checkImage', 'App\Controllers\File@checkImage');
 
 //User Admin Action
 Router::get('/user/getAll', 'App\Controllers\User@getAll');

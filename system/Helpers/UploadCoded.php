@@ -59,4 +59,70 @@ class UploadCoded {
 		return $message;
 	}
 
+	function uploadFile($element,$size = SIZEIMAGE){
+		$file = null;
+		if($element['name']){
+			if(!$element['error']){
+				$name = strtolower($element['name']);
+				$ext = end((explode(".", $name)));
+				$time = time();
+				$newName = md5($name.$time).".".$ext;
+				move_uploaded_file($element['tmp_name'], ROOTDIR.'assets/entry/'.$newName);
+				$file = array('name' => $newName, 'description' => $name, 'size' => $element['size'], 'path' => Url::entryPath().$newName,'type' => 'entry', 'ext' => $ext,  'oldname' => $name );
+			}
+		}
+		return $file;
+	}
+
+
+	function checkImage($element,$size = SIZEIMAGE){
+		$message = null;
+		if($element['name']){
+			//if no errors...
+			if(!$element['error']){
+				$name = strtolower($element['name']);
+				$ext = end((explode(".", $name)));
+				$time = time();
+				$newName = md5($name.$time).$ext;
+
+				if( (strtolower($ext) === 'png' || strtolower($ext) === 'jpg' || strtolower($ext) === 'jpeg' || strtolower($ext) ==='bmp') && ( $element['size'] < ($size) ) ){
+					$message = 'true';
+				}
+				else{
+					if($element['size'] > ($size)){
+						$message = 'wrong-size';
+					}else{
+						$message = 'wrong-file';
+					}
+				}
+			}
+		}
+		return $message;
+	}
+
+	function checkDocument($element,$size = SIZEIMAGE){
+		$message = null;
+		if($element['name']){
+			//if no errors...
+			if(!$element['error']){
+				$name = strtolower($element['name']);
+				$ext = end((explode(".", $name)));
+				$time = time();
+				$newName = md5($name.$time).$ext;
+
+				if( (strtolower($ext) === 'doc' || strtolower($ext) === 'docx' || strtolower($ext) === 'txt' || strtolower($ext) ==='pdf') && ( $element['size'] < ($size) ) ){
+					$message = 'true';
+				}
+				else{
+					if($element['size'] > ($size)){
+						$message = 'wrong-size';
+					}else{
+						$message = 'wrong-file';
+					}
+				}
+			}
+		}
+		return $message;
+	}
+
 }

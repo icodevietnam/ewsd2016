@@ -20,8 +20,8 @@ class HomeIndex extends Controller {
     public function index(){
     	$data['title'] = 'Home';
         $data['lead'] = "Contribution System";
-        $data['slogan'] = "Make People to be Creative ...";
-        $data['banner'] = Url::imgPath().'library-banner.jpg';
+        $data['slogan'] = "People Contribution";
+        $data['banner'] = Url::imgPath().'banner1.jpg';
         $currentYear = date('Y');
         $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
         $data['listFaculties'] = $listFaculties;
@@ -43,24 +43,11 @@ class HomeIndex extends Controller {
         View::renderTemplate('footer', $data,'Home');
     }
 
-    public function facultyPage($code){
-        $faculty = $this->faculties->getFacultyByCode($code);
-        if(count($faculty)!=0){
-            $data['title'] = $faculty->code;
-            $data['lead'] = $faculty->name;
-            $data['slogan'] = $faculty->description;
-            $data['banner'] = Url::imgPath().'library-banner.jpg';
-            $currentYear = date('Y');
-            $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
-            $data['listFaculties'] = $listFaculties;
-            View::renderTemplate('header', $data,'Home');
-            View::render('Home/Faculty', $data);
-            View::renderTemplate('footer', $data,'Home');
-        }
-    }
 
     public function loginAndSignUpPage(){
+        $faculties = $this->faculties->getAll();
         $data['title'] = 'Contribution System';
+        $data['faculties'] = $faculties;
         View::renderTemplate('header',$data,'Signup');
         View::render('Login/HomeLogin', $data);
         View::renderTemplate('footer',$data,'Signup');
@@ -80,6 +67,23 @@ class HomeIndex extends Controller {
             View::render('Home/ViewEntry', $data);
             View::renderTemplate('footer', $data,'Home');
         }
+    }
+
+    public function createEntry(){
+        if(Session::get('student') == null){
+            Url::redirect('home');
+        }
+        $faculty = $this->faculties->getFacultyByCode($code);
+        $data['title'] = 'Create Entry';
+        $data['lead'] = "Create Entry";
+        $data['slogan'] = "You can write your entry ...";
+        $data['banner'] = Url::imgPath().'banner2.png';
+        $currentYear = date('Y');
+        $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
+        $data['listFaculties'] = $listFaculties;
+        View::renderTemplate('header', $data,'Home');
+        View::render('Home/CreateEntry', $data);
+        View::renderTemplate('footer', $data,'Home');
     }
 
 

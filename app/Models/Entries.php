@@ -52,6 +52,16 @@ class Entries extends Model
 		return $data;
 	}
 
+	function getYourEntries($student,$status,$faculty){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."entry WHERE student =:student AND faculty = :faculty AND status =:status ORDER BY created_date DESC ",array(':student' => $student,":status" => $status,':faculty' => $faculty));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
 
 	function update($data,$where){
 		try {
@@ -61,6 +71,26 @@ class Entries extends Model
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 			return false;
 		}
+	}
+
+	function getEntriesByCode($code,$name,$year){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."entry WHERE status = 'approved' AND faculty IN ( SELECT id FROM ".PREFIX."faculty WHERE code =:code AND name=:name AND year =:year ORDER BY created_date DESC )",array(':code' => $code,':name' => $name,':year'=> $year));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
+	function getYear(){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT DISTINCT year FROM ".PREFIX."faculty ORDER BY year DESC ");
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
 	}
 
 }

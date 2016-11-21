@@ -5,6 +5,7 @@ namespace App\Controllers;
 use Core\View;
 use Core\Controller;
 use Helpers\Session;
+use Helpers\Url;
 
 class Faculty extends Controller {	
 

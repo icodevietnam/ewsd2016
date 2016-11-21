@@ -58,7 +58,7 @@ function changeProfile(){
 			complete:function(){
 			},
 			error: function (request, status, error) {
-        	alert(request.responseText);
+        		alert(request.responseText);
     		}
 		});
 	}

@@ -52,39 +52,14 @@ class Files extends Model
 		return $data;
 	}
 
-	function getFacultiesByYear($year){
+	function getFileByName($name){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."file WHERE year =:year ORDER BY description ",array(':year' => $year));
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
-		}
-		return $data;
-	}
-
-	function getFacultyByCode($code){
-		$data = null;
-		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."file WHERE code =:code ",array(':code' => $code));
+			$data = $this->db->select("SELECT * FROM ".PREFIX."file WHERE name =:name ",array(':name' => $name));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
 		return $data[0];
-	}
-
-	function getFacultiesByCoordinator($mktCoor){
-		$data = null;
-		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."file WHERE mkt_coor =:mktCoor",array(':mktCoor' => $mktCoor));
-			if(count($data) >= 1){
-				return false;
-			}else{
-				return true;
-			}
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
-			return true;
-		}
 	}
 
 	function update($data,$where){
