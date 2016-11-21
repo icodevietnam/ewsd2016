@@ -52,39 +52,14 @@ class Comments extends Model
 		return $data;
 	}
 
-	function getFacultiesByYear($year){
+	function getByEntry($entry){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."comment WHERE year =:year ORDER BY description ",array(':year' => $year));
+			$data = $this->db->select("SELECT * FROM ".PREFIX."comment WHERE entry =:entry ORDER BY created_date DESC",array(':entry' => $entry));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
 		return $data;
-	}
-
-	function getFacultyByCode($code){
-		$data = null;
-		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."comment WHERE code =:code ",array(':code' => $code));
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
-		}
-		return $data[0];
-	}
-
-	function getFacultiesByCoordinator($mktCoor){
-		$data = null;
-		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."comment WHERE mkt_coor =:mktCoor",array(':mktCoor' => $mktCoor));
-			if(count($data) >= 1){
-				return false;
-			}else{
-				return true;
-			}
-		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
-			return true;
-		}
 	}
 
 	function update($data,$where){

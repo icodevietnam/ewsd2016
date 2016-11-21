@@ -18,7 +18,7 @@ class File extends Controller {
     }
 
     public function getAll(){
-    	echo json_encode($this->roles->getAll());
+    	echo json_encode($this->files->getAll());
     }
 
     public function add(){
@@ -26,17 +26,17 @@ class File extends Controller {
     	// $description = $_POST['description'];
         // $code = $_POST['code'];
     	// $data = array('name' => $name,'description' => $description,'code' => $code);
-    	echo json_encode($this->roles->add($data));
+    	echo json_encode($this->files->add($data));
     }
 
     public function delete(){
     	$id = $_POST['itemId'];
-    	echo json_encode($this->roles->delete($id));
+    	echo json_encode($this->files->delete($id));
     }
 
     public function get(){
     	$id = $_GET['itemId'];
-    	echo json_encode($this->roles->get($id));
+    	echo json_encode($this->files->get($id));
     }
 
 
@@ -50,7 +50,7 @@ class File extends Controller {
     	$data = array('name' => $name,'description' => $description,'code' => $code);
     	$where = array('id' => $id);
 
-    	echo json_encode($this->roles->update($data,$where));
+    	echo json_encode($this->files->update($data,$where));
     }
 
     public function checkImage(){

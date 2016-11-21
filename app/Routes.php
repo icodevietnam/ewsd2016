@@ -45,6 +45,7 @@ Router::get('/logout','App\Controllers\Login@logOut');
 //Faculty Home
 Router::get('/contribute/(:all)','App\Controllers\Entry@facultyPage');
 Router::get('/entry/getFacultyPage','App\Controllers\Entry@getFacultyPage');
+Router::get('/entry','App\Controllers\Entry@viewEntry');
 
 
 //Role Admin Action
@@ -70,6 +71,12 @@ Router::get('/entry/getEntryByStatus', 'App\Controllers\Entry@getYourEntries');
 //File Action
 Router::post('/file/checkDocument', 'App\Controllers\File@checkDocument');
 Router::post('/file/checkImage', 'App\Controllers\File@checkImage');
+//Role Admin Action
+Router::get('/file/getAll', 'App\Controllers\File@getAll');
+Router::post('/file/add', 'App\Controllers\File@add');
+Router::post('/file/delete', 'App\Controllers\File@delete');
+Router::get('/file/get', 'App\Controllers\File@get');
+Router::post('/file/update', 'App\Controllers\File@update');
 
 //User Admin Action
 Router::get('/user/getAll', 'App\Controllers\User@getAll');

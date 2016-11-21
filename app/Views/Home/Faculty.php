@@ -2,8 +2,8 @@
 <span class="hidden" id="facultyName"><?= $facultyName ?></span>
 <section id="services">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
+            <div class="row col-md-12">
+                <div class="col-md-12 text-center">
                     <h2 class="section-heading"><?= $heading ?></h2>
                     <h3 class="section-subheading text-muted">You will see your all entries.</h3>
                 </div>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <br/>
-            <div class="row">
+            <div id="entry" class="row">
             </div>
         </div>
 </section>

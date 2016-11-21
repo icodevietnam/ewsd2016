@@ -103,4 +103,22 @@ class Entry extends Controller {
         echo json_encode($listEntries);
     }
 
+    public function viewEntry(){
+        $entryId = $_GET['id'];
+        $entry = $this->entries->get($entryId);
+        $data['title'] = 'Detail of Entries';
+        $data['lead'] = 'Your Entries ';
+        $data['slogan'] = "Your Entries";
+        $data['heading'] = $entry[0]->name;
+        $data['banner'] = Url::imgPath().'library-banner.jpg';
+        $currentYear = date('Y');
+        $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
+        $data['listFaculties'] = $listFaculties;
+        $data['entry'] = $entry;
+        $data['files'] = $this->files->get($entry[0]->file);
+        View::renderTemplate('header', $data,'Home');
+        View::render('Home/ViewEntry', $data);
+        View::renderTemplate('footer', $data,'Home');
+    }
+
 }

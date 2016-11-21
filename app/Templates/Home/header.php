@@ -85,7 +85,7 @@
                     </li>
                     <?php } else{ ?>
                     <li>
-                        <a class="page-scroll" >Hello, [ <?= Session::get('student')[0]->username ?> ] </a>
+                        <a class="page-scroll" >Hi, [ <?= Session::get('student')[0]->username ?> ] </a>
                     </li>
                     <li>
                         <a class="page-scroll" href="<?= DIR ?>your-entry" >Your Entries</a>
