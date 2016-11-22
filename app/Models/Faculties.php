@@ -87,6 +87,17 @@ class Faculties extends Model
 		}
 	}
 
+	function getFaculty($mktCoor){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."faculty WHERE mkt_coor =:mktCoor",array(':mktCoor' => $mktCoor));
+			
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data[0];
+	}
+
 	function update($data,$where){
 		try {
 			$this->db->update(PREFIX."faculty",$data,$where);

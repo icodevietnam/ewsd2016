@@ -17,6 +17,18 @@ class File extends Controller {
         $this->files = new \App\Models\Files();
     }
 
+
+    public function index(){
+        if(Session::get('admin') == null){
+            Url::redirect('admin/login');
+        }
+        $data['title'] = 'File Management';
+        $data['menu'] = 'faculty';
+        View::renderTemplate('header', $data);
+        View::render('File/File', $data);
+        View::renderTemplate('footer', $data);
+    }
+
     public function getAll(){
     	echo json_encode($this->files->getAll());
     }

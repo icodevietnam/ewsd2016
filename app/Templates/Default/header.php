@@ -85,7 +85,6 @@
                     <ul class="nav nav-second-level collapse">
                         <li><a href="<?=DIR;?>admin/statistics">Statistics</a></li>
                         <li><a href="<?=DIR;?>admin/reports">Reports</a></li>
-                        <li><a href="<?=DIR;?>admin/contact-us">Contact Us</a></li>
                     </ul>
                 </li>
                 <li class="user <?php if($menu == 'user') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
@@ -100,6 +99,7 @@
                     <ul class="nav nav-second-level collapse">
                         <li><a href="<?=DIR;?>admin/faculty">Manage Facuties</a></li>
                         <li><a href="<?=DIR;?>admin/entry">Manage Entries</a></li>
+                        <li><a href="<?=DIR;?>admin/file">Manage File</a></li>
                     </ul>
                 </li>
             </ul>

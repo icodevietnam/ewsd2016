@@ -143,7 +143,7 @@ class Users extends Model
 	function loginConsole($username,$password){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT U.*, R.name as 'roleName' FROM ".PREFIX."user U, ".PREFIX."role R  WHERE U.username = :username AND U.password = :password AND U.role = R.id AND (R.code='admin' OR R.code = 'mkmng' OR R.code = 'mkcood') ",array(':username' => $username,':password' => $password));
+			$data = $this->db->select("SELECT U.*, R.name as 'roleName', R.code as 'roleCode' FROM ".PREFIX."user U, ".PREFIX."role R  WHERE U.username = :username AND U.password = :password AND U.role = R.id AND (R.code='admin' OR R.code = 'mkmng' OR R.code = 'mkcoor') ",array(':username' => $username,':password' => $password));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}

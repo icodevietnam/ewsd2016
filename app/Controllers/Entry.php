@@ -12,6 +12,8 @@ class Entry extends Controller {
     private $entries;
     private $files;
     private $faculties;
+    private $comments;
+    private $roles;
 
 	public function __construct()
     {
@@ -19,6 +21,20 @@ class Entry extends Controller {
         $this->entries = new \App\Models\Entries();
         $this->faculties = new \App\Models\Faculties();
         $this->files = new  \App\Models\Files();
+        $this->comments = new  \App\Models\Comments();
+        $this->roles = new \App\Models\Roles();
+    }
+
+    public function index(){
+        if(Session::get('admin') == null){
+            Url::redirect('admin/login');
+        }
+        $data['title'] = 'Entry Management';
+        $data['menu'] = 'faculty';
+        $data['faculties'] = $this->faculties->getAll();
+        View::renderTemplate('header', $data);
+        View::render('Entry/Entry', $data);
+        View::renderTemplate('footer', $data);
     }
 
     public function add(){
@@ -116,9 +132,23 @@ class Entry extends Controller {
         $data['listFaculties'] = $listFaculties;
         $data['entry'] = $entry;
         $data['files'] = $this->files->get($entry[0]->file);
+        $data['comments'] = $this->comments->getByEntry($entry[0]->id);
         View::renderTemplate('header', $data,'Home');
         View::render('Home/ViewEntry', $data);
         View::renderTemplate('footer', $data,'Home');
+    }
+
+    function getFaculty(){
+        $roleCode = Session::get('admin')[0]->roleCode;
+        $entries = null;
+        if($roleCode=='mkcoor'){
+            $faculty = $this->faculties->getFaculty(Session::get('admin')[0]->id);
+            $entries = $this->entries->getEntries($faculty->id);
+        }else{
+            $facultyId = $_GET['faculty'];
+            $entries = $this->entries->getEntries($facultyId);
+        }
+        echo json_encode($entries);
     }
 
 }

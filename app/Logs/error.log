@@ -1,4 +1,27 @@
-2016-11-21 15:49PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Contact/Contact.php on line 55
+Exception information:
 
-2016-11-21 16:23PM - Invalid argument supplied for foreach() in /opt/lampp/htdocs/ewsd2016/app/Views/Home/ViewEntry.php on line 15
+           Date: Nov 22, 2016 6:25AM
+
+           Message: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'faculty' in where clause is ambiguous
+
+           Code: 23000
+
+           File: /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php
+
+           Line: 96
+
+           Stack trace:
+
+           #0 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Helpers/Database.php(96): PDOStatement->execute()
+#1 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Models/Entries.php(58): Helpers\Database->select('SELECT E.*, U.u...', Array)
+#2 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Controllers/Entry.php(146): App\Models\Entries->getEntries('6')
+#3 [internal function]: App\Controllers\Entry->getFaculty()
+#4 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(193): call_user_func_array(Array, Array)
+#5 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(224): Core\Router->invokeController('App\\Controllers...', 'getFaculty', Array)
+#6 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/system/Core/Router.php(261): Core\Router->invokeObject('App\\Controllers...', Array)
+#7 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/app/Routes.php(117): Core\Router->dispatch()
+#8 /Applications/XAMPP/xamppfiles/htdocs/ewsd2016/index.php(74): require('/Applications/X...')
+#9 {main}
+
+           ---------
 

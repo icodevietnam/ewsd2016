@@ -28,10 +28,24 @@
             </div>
             <br/>
             <?php if(Session::get('student')[0] != null) {?>
-            <div id="comment" class="row">
-                <h6 style="color:#000000;">Comment</h6>
-                
+            <?php if($comments != null) { ?>
+            <div style="border: 1px dashed #000000;padding-left: 10px ; " id="comment" class="row">
+                <h5 style="color:#000000;">Comment</h5>
+                    <?php foreach($comments as $comment) {?>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img class="img-responsive" src="<?= $comment->avatar ?>" />
+                                <p class="username"><?= $comment->username ?></p>
+                            </div>
+                            <div class="col-md-10">
+                                <p class="name">Title : <?= $comment->name ?></p>
+                                <p class="comment"><?= $comment->comment ?></p>
+                                <p style="font-size:11px;" class="created_date"><?= $comment->date_created ?></p>
+                            </div>
+                        </div>
+                    <?php } ?>
             </div>
+            <?php } ?>
             <?php } ?>
         </div>
 </section>

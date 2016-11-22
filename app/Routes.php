@@ -21,6 +21,8 @@ Router::any('/admin/','App\Controllers\Dashboard@index');
 Router::get('/admin/notification', 'App\Controllers\Notification@index');
 Router::get('/admin/news', 'App\Controllers\Notification@index2');
 Router::get('/admin/faculty', 'App\Controllers\Faculty@index');
+Router::get('/admin/entry', 'App\Controllers\Entry@index');
+Router::get('/admin/file', 'App\Controllers\File@index');
 Router::get('/admin/profile', 'App\Controllers\Profile@profile');
 Router::get('/admin/contact-us', 'App\Controllers\Contact@index');
 Router::get('/admin/change-password', 'App\Controllers\Profile@changePassword');
@@ -32,6 +34,7 @@ Router::get('/','App\Controllers\HomeIndex@index');
 
 Router::get('/create-entry','App\Controllers\HomeIndex@createEntry');
 Router::get('/your-entry','App\Controllers\Entry@yourEntries');
+Router::get('/profile','App\Controllers\HomeIndex@profile');
 //Login User
 Router::get('/user/login', 'App\Controllers\HomeIndex@loginAndSignUpPage');
 
@@ -46,6 +49,8 @@ Router::get('/logout','App\Controllers\Login@logOut');
 Router::get('/contribute/(:all)','App\Controllers\Entry@facultyPage');
 Router::get('/entry/getFacultyPage','App\Controllers\Entry@getFacultyPage');
 Router::get('/entry','App\Controllers\Entry@viewEntry');
+Router::get('/entry/getAll', 'App\Controllers\Entry@getAll');
+Router::get('/entry/getFaculty','App\Controllers\Entry@getFaculty');
 
 
 //Role Admin Action

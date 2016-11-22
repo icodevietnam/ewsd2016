@@ -86,5 +86,25 @@ class HomeIndex extends Controller {
         View::renderTemplate('footer', $data,'Home');
     }
 
+    public function profile(){
+        if(Session::get('student') == null){
+            Url::redirect('home');
+        }
+        $faculty = $this->faculties->getFacultyByCode($code);
+        $data['title'] = 'View Profile';
+        $data['lead'] = "View Profile";
+        $data['heading'] = "You can view your profile";
+        $data['slogan'] = "View your Profile ...";
+        $data['banner'] = Url::imgPath().'banner2.png';
+        $currentYear = date('Y');
+        $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
+        $data['listFaculties'] = $listFaculties;
+        $currentFaculty = $this->faculties->get(Session::get('student')[0]->faculty);
+        $data['facultyCode'] = $currentFaculty[0]->code;
+        View::renderTemplate('header', $data,'Home');
+        View::render('Home/Profile', $data);
+        View::renderTemplate('footer', $data,'Home');
+    }
+
 
 }

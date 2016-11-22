@@ -55,7 +55,7 @@ class Comments extends Model
 	function getByEntry($entry){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."comment WHERE entry =:entry ORDER BY created_date DESC",array(':entry' => $entry));
+			$data = $this->db->select("SELECT C.* , U.*, C.created_date as 'date_created'  FROM ".PREFIX."comment C, ".PREFIX."user U  WHERE C.entry =:entry AND C.user = U.id ORDER BY C.created_date DESC ",array(':entry' => $entry));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}

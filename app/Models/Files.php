@@ -14,7 +14,7 @@ class Files extends Model
 	function getAll(){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."file order by id desc ");
+			$data = $this->db->select("SELECT * FROM ".PREFIX."file order by created_date desc ");
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}

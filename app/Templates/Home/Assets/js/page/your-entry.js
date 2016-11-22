@@ -24,7 +24,7 @@ function displayTable(status) {
 				dataItems.push([
 						i,
 						value.name,value.description,value.content, value.created_date,
-						"<button class='btn btn-sm btn-info'>View Entry</button>"]);
+						"<a class='btn btn-sm btn-info' href='/ewsd2016/entry?id="+value.id+"'>View Entry</a>"]);
 			});
 			$('#tblEntry').dataTable({
 				"bDestroy" : true,

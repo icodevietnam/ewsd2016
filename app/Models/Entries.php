@@ -52,6 +52,16 @@ class Entries extends Model
 		return $data;
 	}
 
+	function getEntries($faculty){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT E.*, U.username as 'username', F.name as 'facultyName', F.code as 'facultyCode' FROM ".PREFIX."entry E, user U, faculty F WHERE E.faculty = :faculty AND E.student = U.id AND E.faculty = F.id  ORDER BY created_date DESC ",array(':faculty' => $faculty));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
 	function getYourEntries($student,$status,$faculty){
 		$data = null;
 		try {

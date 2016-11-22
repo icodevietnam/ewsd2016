@@ -116,8 +116,15 @@ class User extends Controller {
         $fullName = $_POST['fullName'];
         $faculty = $_POST['faculty'];
         $email = $_POST['email'];
+        $upload = new \Helpers\UploadCoded();
+        $avatar = $upload->upload('avatar','image');
+        $fileName = $_FILES['avatar']['name'];
         $currentRole =  $this->roles->getCode('student');
-        $data = array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $currentRole[0]->id,'faculty' => $faculty);
+        if("" === $fileName){
+            $data =array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'email' => $email,'avatar' => 'http://localhost/ewsd2016/assets/images/default.png','role' => $currentRole[0]->id,'faculty' => $faculty);
+        }else{
+            $data =array('username' => $username, 'password' => md5($password) ,'fullname' => $fullName,'email' => $email,'avatar' => $avatar,'role' => $currentRole[0]->id,'faculty' => $faculty);
+        }
         $user = $this->users->add($data);
         $student = $this->users->getUsername($username);
         Session::set('student',$student);
