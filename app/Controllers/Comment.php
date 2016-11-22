@@ -10,11 +10,15 @@ use Helpers\Url;
 class Comment extends Controller {	
 
 	private $files;
+    private $comments;
+    private $entries;
 
 	public function __construct()
     {
         parent::__construct();
         $this->files = new \App\Models\Files();
+        $this->comments = new \App\Models\Comments();
+        $this->entries = new \App\Models\Entries();
     }
 
     public function getAll(){
@@ -51,6 +55,12 @@ class Comment extends Controller {
     	$where = array('id' => $id);
 
     	echo json_encode($this->files->update($data,$where));
+    }
+
+    public function getByEntry(){
+        $entryId = $_GET['id'];
+        $listEntries = $this->comments->getByEntry($entryId);
+        echo json_encode($listEntries);
     }
 
 }

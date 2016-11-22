@@ -56,7 +56,7 @@ class Faculty extends Controller {
 
     public function delete(){
     	$id = $_POST['itemId'];
-    	echo json_encode($this->faculties->delete($id));
+    	json_encode($this->faculties->delete($id));
     }
 
     public function get(){
@@ -77,6 +77,14 @@ class Faculty extends Controller {
     	$where = array('id' => $id);
 
     	echo json_encode($this->faculties->update($data,$where));
+    }
+
+    public function getEntriesByEachAcademicYear(){
+        echo json_encode($this->faculties->getEntriesByEachAcademicYear());
+    }
+
+    public function getContributorsByEachAcademicYear(){
+        echo json_encode($this->faculties->getContributorsByEachAcademicYear());
     }
 
 }

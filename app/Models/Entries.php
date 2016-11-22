@@ -45,17 +45,17 @@ class Entries extends Model
 	function get($id){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."entry WHERE id =:id",array(':id' => $id));
+			$data = $this->db->select("SELECT E.*, U.username as 'username', F.name as 'facultyName', F.code as 'facultyCode' , fi.name as 'fileName' , fi.path as 'filePath' FROM ".PREFIX."entry E, user U, faculty F , file fi WHERE E.id = :id AND E.student = U.id AND E.faculty = F.id AND E.file = fi.id ORDER BY created_date DESC ",array(':id' => $id));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
-		return $data;
+		return $data[0];
 	}
 
 	function getEntries($faculty){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT E.*, U.username as 'username', F.name as 'facultyName', F.code as 'facultyCode' FROM ".PREFIX."entry E, user U, faculty F WHERE E.faculty = :faculty AND E.student = U.id AND E.faculty = F.id  ORDER BY created_date DESC ",array(':faculty' => $faculty));
+			$data = $this->db->select("SELECT E.*, U.username as 'username', F.name as 'facultyName', F.code as 'facultyCode' , fi.name as 'fileName' , fi.path as 'filePath' FROM ".PREFIX."entry E, user U, faculty F , file fi WHERE E.faculty = :faculty AND E.student = U.id AND E.faculty = F.id AND E.file = fi.id  ORDER BY created_date DESC ",array(':faculty' => $faculty));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}

@@ -125,14 +125,14 @@ class Entry extends Controller {
         $data['title'] = 'Detail of Entries';
         $data['lead'] = 'Your Entries ';
         $data['slogan'] = "Your Entries";
-        $data['heading'] = $entry[0]->name;
+        $data['heading'] = $entry->name;
         $data['banner'] = Url::imgPath().'library-banner.jpg';
         $currentYear = date('Y');
         $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
         $data['listFaculties'] = $listFaculties;
         $data['entry'] = $entry;
-        $data['files'] = $this->files->get($entry[0]->file);
-        $data['comments'] = $this->comments->getByEntry($entry[0]->id);
+        $data['files'] = $this->files->get($entry->file);
+        $data['comments'] = $this->comments->getByEntry($entry->id);
         View::renderTemplate('header', $data,'Home');
         View::render('Home/ViewEntry', $data);
         View::renderTemplate('footer', $data,'Home');
@@ -149,6 +149,36 @@ class Entry extends Controller {
             $entries = $this->entries->getEntries($facultyId);
         }
         echo json_encode($entries);
+    }
+
+    function preReviewCode(){
+        $id = $_GET['id'];
+        $reviewer = Session::get("admin")[0]->id; 
+        $entry = $this->entries->get($id);
+        if($entry->status === STATUS_NON_APPROVED){
+            $status = STATUS_IS_REVIEWED;
+        }else{
+            $status = $entry->status;
+        }
+        $data = array("status" => $status,"reviewer" => $reviewer);
+        $where = array("id"=>$id);
+        $this->entries->update($data,$where);
+        $entry = $this->entries->get($id);
+        echo json_encode($entry);
+    }
+
+    function checkCode(){
+        $status = $_POST["status"];
+        $reviewer = Session::get("admin")[0]->id;
+        $entryId = $_POST["id"];
+        $entry = $this->entries->get($entryId);
+        $comment = $_POST["comment"];
+        $dataComment = array("user"=>$reviewer,"name"=>"Feedback about ".$entry->name,"comment"=>$comment,"entry"=>$entryId);
+        $this->comments->add($dataComment);
+        $data = array("status"=>$status);
+        $where = array("id"=> $entryId);
+        $this->entries->update($data,$where);
+        echo json_encode(true);
     }
 
 }

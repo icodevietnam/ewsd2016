@@ -32,12 +32,13 @@
     Url::templatePath().'js/jquery.dataTables.js',
     Url::templatePath().'js/dataTables.bootstrap.js',
     Url::templatePath().'js/jquery.validate.js',
+    Url::templatePath().'js/jquery.canvasjs.min.js',
     Url::templatePath().'js/bootstrap.min.js',
     ]);
     ?>
 <script>
     tinymce.init({
-        selector: "textarea",
+        selector: ".editor",
         statusbar: false,
         setup: function (editor) {
             editor.on('change', function () {
@@ -100,6 +101,7 @@
                         <li><a href="<?=DIR;?>admin/faculty">Manage Facuties</a></li>
                         <li><a href="<?=DIR;?>admin/entry">Manage Entries</a></li>
                         <li><a href="<?=DIR;?>admin/file">Manage File</a></li>
+                        <li><a href="<?=DIR;?>admin/notification">Manage Notification</a></li>
                     </ul>
                 </li>
             </ul>

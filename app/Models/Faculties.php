@@ -37,7 +37,6 @@ class Faculties extends Model
 			$this->db->delete(PREFIX.'faculty',array('id' => $id));
 			return true;
 		} catch (Exception $e) {
-			echo 'Caught exception: ',  $e->getMessage(), "\n";
 			return false;
 		}
 	}
@@ -106,6 +105,29 @@ class Faculties extends Model
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 			return false;
 		}
+	}
+
+	//Number of contributions within each Faculty for each academic year.
+	function getEntriesByEachAcademicYear(){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year ,( SELECT count(1) FROM ".PREFIX."entry E where E.faculty = F.id  ) as 'countEntries'  FROM ".PREFIX."faculty F ");
+			
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
+	function getContributorsByEachAcademicYear(){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year ,( SELECT count(1) FROM ".PREFIX."entry E where E.student = F.id  ) as 'countContributors'  FROM ".PREFIX."faculty F ");
+			
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
 	}
 
 }

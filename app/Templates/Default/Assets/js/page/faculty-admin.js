@@ -166,9 +166,13 @@ function deleteItem(id) {
 			},
 			dataType : "JSON",
 			success : function(response) {
+				if(response === false){
+					alert("Can't not delete because we have relation-ship from table ");
+					displayTable();
+				}
 			},
 			complete : function(){
-				displayTable();
+				
 			}
 		});
 	}
