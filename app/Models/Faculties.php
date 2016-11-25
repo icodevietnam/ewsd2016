@@ -111,7 +111,7 @@ class Faculties extends Model
 	function getEntriesByEachAcademicYear(){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year ,( SELECT count(1) FROM ".PREFIX."entry E where E.faculty = F.id  ) as 'countEntries'  FROM ".PREFIX."faculty F ");
+			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year ,( SELECT count(1) FROM ".PREFIX."entry E where E.faculty = F.id  ) as 'countEntries', ( SELECT count(1) FROM entry E ) as 'total'  FROM ".PREFIX."faculty F ");
 			
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -122,7 +122,7 @@ class Faculties extends Model
 	function getContributorsByEachAcademicYear(){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year ,( SELECT count(1) FROM ".PREFIX."entry E where E.student = F.id  ) as 'countContributors'  FROM ".PREFIX."faculty F ");
+			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year , ( SELECT COUNT(-1) FROM ".PREFIX."user U Where U.id IN (SELECT student from ".PREFIX."entry where faculty = F.id )) AS 'countContributor'  FROM ".PREFIX."faculty F ");
 			
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";

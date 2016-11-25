@@ -103,4 +103,11 @@ class Entries extends Model
 		return $data;
 	}
 
+	function getEntriesWithOutComment(){
+
+	}
+
+	function getEntriesWithOutComment14days(){
+
+	}
 }

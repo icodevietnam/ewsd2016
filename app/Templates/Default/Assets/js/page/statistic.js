@@ -13,7 +13,7 @@ function displayTable2() {
 			var i = 0;
 			$.each(response, function(key, value) {
 			i++;
-			dataItems.push([i,value.name,value.description,value.year,value.countEntries]);
+			dataItems.push([i,value.name,value.description,value.year,value.countContributor]);
 			});
 			$('#tblContributor').dataTable({
 				"bDestroy" : true,
@@ -51,8 +51,9 @@ function displayTable() {
 			var i = 0;
 			$.each(response, function(key, value) {
 				i++;
+				var percent = (value.countEntries / value.total ) * 100;
 				dataItems.push([i,value.name,value.description,value.year,value.countEntries]);
-				dataPoints.push({y:value.countEntries,legendText : value.name, label: value.name});
+				dataPoints.push({y:percent,legendText : value.name, label: value.name});
 
 			});
 			//Show Chart
@@ -74,11 +75,11 @@ function displayTable() {
 					type: "pie",       
 					indexLabelFontFamily: "Garamond",       
 					indexLabelFontSize: 20,
-					indexLabel: "{label} : {y} entries",
+					indexLabel: "{label} : {y} %",
 					startAngle:-20,
 					endAngle : -20,
 					showInLegend: true,
-					toolTipContent:"{legendText} : {y} entries",
+					toolTipContent:"{legendText} : {y} %",
 					dataPoints: dataPoints
 				}
 				]
