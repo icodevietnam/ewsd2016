@@ -2,9 +2,9 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-content" >
-			<h4>Entries without a cooment</h4>
+			<h2>Entries without a comment</h2>
 				<div class="table-responsive">
-					<table id="tblFaculty"
+					<table id="tblEntryReport1"
 							class="table table-bordered table-hover table-striped">
 					</table>
 				</div>
@@ -14,9 +14,9 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-content" >
-			<h4>Entries without a cooment</h4>
+			<h2>Entries without a comment in 14day</h2>
 				<div class="table-responsive">
-					<table id="tblFaculty"
+					<table id="tblEntryReport2"
 							class="table table-bordered table-hover table-striped">
 					</table>
 				</div>

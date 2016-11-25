@@ -85,13 +85,13 @@
                     </li>
                     <?php } else{ ?>
                     <li>
-                        <a class="page-scroll" href="/ewsd2016/profile" >Hi, [ <?= Session::get('student')[0]->username ?> ] </a>
-                    </li>
-                    <li>
                         <a class="page-scroll" href="<?= DIR ?>your-entry" >Your Entries</a>
                     </li> 
                     <li>
                         <a class="page-scroll" href="<?= DIR ?>contact-us">Contact Us</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="/ewsd2016/profile" >Hi, [ <?= Session::get('student')[0]->username ?> ] </a>
                     </li>
                     <li>
                     <a class="page-scroll" href="<?= DIR ?>logout" ><u>Log Out</u></a>

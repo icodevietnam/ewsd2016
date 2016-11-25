@@ -37,18 +37,26 @@ $(function() {
 				required:true
 			},
 			code :{
-				required: true
+				remote : {
+					url : '/ewsd2016/faculty/checkCode',
+					type : 'GET',
+					data : {
+						code : function(){
+							return $('#newItemForm .code').val();
+						}
+					}
+				}
 			}
 		},
 		messages : {
 			name:{
-				required:"Title is not blank"
+				required:"Name is not blank"
 			},
 			description:{
 				required:"Description is not blank"
 			},
 			code :{
-				required :"Content is not blank"
+				code : "Code is existed"
 			}
 		},
 	});
@@ -62,18 +70,26 @@ $(function() {
 				required:true
 			},
 			code :{
-				required: true
+				remote : {
+					url : '/ewsd2016/faculty/checkCode',
+					type : 'GET',
+					data : {
+						code : function(){
+							return $('#updateItemForm .code').val();
+						}
+					}
+				}
 			}
 		},
 		messages : {
 			name:{
-				required:"Title is not blank"
+				required:"Name is not blank"
 			},
 			description:{
 				required:"Description is not blank"
 			},
 			code :{
-				required: "Content is not blank"
+				code : "Code is existed"
 			}
 		},
 	});
@@ -129,6 +145,7 @@ function displayTable() {
 	reloadMkcoor();
 }
 
+
 function getItem(id) {
 	$.ajax({
 		url : "/ewsd2016/faculty/get",
@@ -166,8 +183,7 @@ function deleteItem(id) {
 			},
 			dataType : "JSON",
 			success : function(response) {
-				if(response === false){
-					alert("Can't not delete because we have relation-ship from table ");
+				if(response === true){
 					displayTable();
 				}
 			},

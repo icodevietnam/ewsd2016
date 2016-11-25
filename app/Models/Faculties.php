@@ -107,11 +107,26 @@ class Faculties extends Model
 		}
 	}
 
+	function checkCode($code){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."faculty WHERE code =:code",array(':code' => $code));
+			if(count($data) >= 1){
+				return false;
+			}else{
+				return true;
+			}
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+			return true;
+		}
+	}
+
 	//Number of contributions within each Faculty for each academic year.
 	function getEntriesByEachAcademicYear(){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year ,( SELECT count(1) FROM ".PREFIX."entry E where E.faculty = F.id  ) as 'countEntries', ( SELECT count(1) FROM entry E ) as 'total'  FROM ".PREFIX."faculty F ");
+			$data = $this->db->select("SELECT F.id , CONCAT(F.name,'-',F.year) AS 'name' , F.description, F.year ,( SELECT count(1) FROM ".PREFIX."entry E where E.faculty = F.id  ) as 'countEntries', ( SELECT count(1) FROM entry E ) as 'total'  FROM ".PREFIX."faculty F ");
 			
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
@@ -122,12 +137,14 @@ class Faculties extends Model
 	function getContributorsByEachAcademicYear(){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT F.id , F.name, F.description, F.year , ( SELECT COUNT(-1) FROM ".PREFIX."user U Where U.id IN (SELECT student from ".PREFIX."entry where faculty = F.id )) AS 'countContributor'  FROM ".PREFIX."faculty F ");
+			$data = $this->db->select("SELECT F.id , CONCAT(F.name,'-',F.year) AS 'name', F.description, F.year , ( SELECT COUNT(-1) FROM ".PREFIX."user U Where U.id IN (SELECT student from ".PREFIX."entry where faculty = F.id )) AS 'countContributor'  FROM ".PREFIX."faculty F ");
 			
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
 		return $data;
 	}
+
+
 
 }

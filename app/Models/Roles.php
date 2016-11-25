@@ -32,6 +32,21 @@ class Roles extends Model
 		}
 	}
 
+	function checkCode($code){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."role WHERE code =:code",array(':code' => $code));
+			if(count($data) >= 1){
+				return false;
+			}else{
+				return true;
+			}
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+			return true;
+		}
+	}
+
 
 	function delete($id){
 		try {

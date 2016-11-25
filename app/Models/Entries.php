@@ -104,10 +104,22 @@ class Entries extends Model
 	}
 
 	function getEntriesWithOutComment(){
-
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT E.*, U.username as 'username', F.name as 'facultyName', F.code as 'facultyCode' , fi.name as 'fileName' , fi.path as 'filePath' FROM ".PREFIX."entry E, user U, faculty F , file fi WHERE E.student = U.id AND E.faculty = F.id AND E.file = fi.id AND E.id NOT IN (SELECT C.entry from comment C)  ORDER BY created_date DESC ");
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
 	}
 
 	function getEntriesWithOutComment14days(){
-
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT E.*, U.username as 'username', F.name as 'facultyName', F.code as 'facultyCode' , fi.name as 'fileName' , fi.path as 'filePath' FROM ".PREFIX."entry E, user U, faculty F , file fi WHERE E.student = U.id AND E.faculty = F.id AND E.file = fi.id AND datediff(now(),E.created_date) >= 14  ORDER BY created_date DESC ");
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
 	}
 }

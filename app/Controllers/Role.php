@@ -63,4 +63,9 @@ class Role extends Controller {
     	echo json_encode($this->roles->update($data,$where));
     }
 
+    public function checkCode(){
+        $code = $_GET['code'];
+        echo json_encode($this->roles->checkCode($code));
+    }
+
 }

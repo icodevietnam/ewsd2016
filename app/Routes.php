@@ -51,6 +51,8 @@ Router::get('/entry/getFacultyPage','App\Controllers\Entry@getFacultyPage');
 Router::get('/entry','App\Controllers\Entry@viewEntry');
 Router::get('/entry/getAll', 'App\Controllers\Entry@getAll');
 Router::get('/entry/getFaculty','App\Controllers\Entry@getFaculty');
+Router::get('/entry/getEntriesWithOutComment','App\Controllers\Entry@getEntriesWithOutComment');
+Router::get('/entry/getEntriesWithOutComment14days','App\Controllers\Entry@getEntriesWithOutComment14days');
 Router::get('/entry/preReviewCode','App\Controllers\Entry@preReviewCode');
 Router::post('/entry/checkCode','App\Controllers\Entry@checkCode');
 
@@ -61,6 +63,7 @@ Router::get('/role/getAll', 'App\Controllers\Role@getAll');
 Router::post('/role/add', 'App\Controllers\Role@add');
 Router::post('/role/delete', 'App\Controllers\Role@delete');
 Router::get('/role/get', 'App\Controllers\Role@get');
+Router::get('/role/checkCode', 'App\Controllers\Role@checkCode');
 Router::post('/role/update', 'App\Controllers\Role@update');
 
 //Faculty Admin Action
@@ -69,8 +72,8 @@ Router::post('/faculty/add', 'App\Controllers\Faculty@add');
 Router::post('/faculty/delete', 'App\Controllers\Faculty@delete');
 Router::get('/faculty/get', 'App\Controllers\Faculty@get');
 Router::post('/faculty/update', 'App\Controllers\Faculty@update');
+Router::get('/faculty/checkCode', 'App\Controllers\Faculty@checkCode');
 Router::get('/faculty/getEntriesByEachAcademicYear', 'App\Controllers\Faculty@getEntriesByEachAcademicYear');
-
 Router::get('/faculty/getContributorsByEachAcademicYear', 'App\Controllers\Faculty@getContributorsByEachAcademicYear');
 
 //Entry Admin Action

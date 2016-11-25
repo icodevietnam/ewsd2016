@@ -2,7 +2,7 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-content">
-				<a href="<?=DIR;?>admin/role" class="btn-link">
+				<a href="<?=DIR;?>admin/faculty" class="btn-link">
 					<h2><?= $title ?></h2>
 				</a>
 				<button data-toggle="modal" data-target="#newItem"class="btn btn-sm btn-primary">Create</button>
@@ -44,7 +44,7 @@
 					<div class="form-group">
 						<label for="code" class="col-sm-2 control-label">Code</label>
 						<div class="col-sm-10">
-						<input type="text" readonly class="code form-control" name="code" >
+						<input type="text" readonly="" class="code form-control" name="code" >
 						</div>
 					</div>
 					<div class="form-group">
@@ -105,20 +105,20 @@
 								<div class="form-group">
 									<label for="code" class="col-sm-2 control-label">Code</label>
 									<div class="col-sm-10">
-									<input type="text" readonly="" class="code form-control" name="code" >
+										<input type="text" readonly=""  class="code form-control" name="code" >
 									</div>
 								</div>
 								<div class="form-group">
-						<label for="year" class="col-sm-2 control-label">Year</label>
-						<div class="col-sm-10">
-							<select class='selectpicker year' name='year' >
-								<?php 
-									foreach ($years as $value) {
-										echo "<option value=".$value.">".$value."</option>";
-									}
-								?>
-							</select>
-						</div>
+								<label for="year" class="col-sm-2 control-label">Year</label>
+								<div class="col-sm-10">
+									<select class='selectpicker year' name='year' >
+										<?php 
+											foreach ($years as $value) {
+												echo "<option value=".$value.">".$value."</option>";
+											}
+										?>
+									</select>
+								</div>
 					</div>
 					<div class="form-group">
 						<label for="year" class="col-sm-2 control-label">Marketing Coordinator</label>

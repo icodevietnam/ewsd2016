@@ -9,7 +9,16 @@ $(function() {
 			description:{
 				required:true
 			},code :{
-				required:true
+				required:true,
+				remote : {
+					url : '/ewsd2016/role/checkCode',
+					type : 'GET',
+					data : {
+						code : function(){
+							return $('#newItemForm .code').val();
+						}
+					}
+				}
 			}
 		},
 		messages : {
@@ -20,7 +29,8 @@ $(function() {
 				required:"Description is not blank"
 			},
 			code:{
-				required:"Code is not blank"
+				required:"Code is not blank",
+				remote : "Code is existed"
 			}
 		},
 	});

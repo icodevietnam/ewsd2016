@@ -181,4 +181,12 @@ class Entry extends Controller {
         echo json_encode(true);
     }
 
+    public function getEntriesWithOutComment(){
+        echo json_encode($this->entries->getEntriesWithOutComment());
+    }
+
+    public function getEntriesWithOutComment14days(){
+        echo json_encode($this->entries->getEntriesWithOutComment14days());
+    }
+
 }
