@@ -23,11 +23,10 @@ class Entries extends Model
 
 	function add($data){
 		try {
-			$this->db->insert(PREFIX.'entry',$data);
-			return true;
+			return $this->db->insert(PREFIX.'entry',$data);
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
-			return false;
+			return -1;
 		}
 	}
 

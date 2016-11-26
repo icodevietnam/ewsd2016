@@ -17,6 +17,7 @@ Assets::js([
 	Url::templatePath().'js/plugins/slimscroll/jquery.slimscroll.min.js',
 	Url::templatePath().'js/inspinia.js',
 	Url::templatePath().'js/plugins/pace/pace.min.js',
+	Url::templatePath().'js/common.js',
 ]);
 echo $js; //place to pass data / plugable hook zone
 echo $footer; //place to pass data / plugable hook zone

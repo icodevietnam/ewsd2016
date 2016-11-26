@@ -80,28 +80,39 @@
                     </div>
                     <div class="logo-element">IN+</div>
                 </li>
-               
+                <? if(Session::get('admin')[0]->roleCode == 'mkcoor'  || Session::get('admin')[0]->roleCode == 'mkmng' ) {?>
                 <li class="user <?php if($menu == 'preference') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
-                    class="nav-label">General</span> <span class="fa arrow"></span></a>
+                    class="nav-label">Statistics & Reports</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="<?=DIR;?>admin/statistics">Statistics</a></li>
                         <li><a href="<?=DIR;?>admin/reports">Reports</a></li>
                     </ul>
                 </li>
+                <? } ?>
                 <li class="user <?php if($menu == 'user') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
                     class="nav-label">Manage User</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="<?=DIR;?>admin/user">Manage Users</a></li>
+                        <? if(Session::get('admin')[0]->roleCode == 'admin') {?>
                         <li><a href="<?=DIR;?>admin/role">Manage Roles</a></li>
+                        <? } ?>
                     </ul>
                 </li>
                 <li class="user <?php if($menu == 'faculty') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
                     class="nav-label">Manage Contribution</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
+                        <? if(Session::get('admin')[0]->roleCode == 'admin'  || Session::get('admin')[0]->roleCode == 'mkmng' ) {?>
                         <li><a href="<?=DIR;?>admin/faculty">Manage Facuties</a></li>
+                        <? } ?>
+                        <? if(Session::get('admin')[0]->roleCode == 'mkcoor'  || Session::get('admin')[0]->roleCode == 'mkmng' ) {?>
                         <li><a href="<?=DIR;?>admin/entry">Manage Entries</a></li>
+                        <? } ?>
+                        <? if(Session::get('admin')[0]->roleCode == 'admin') {?>
                         <li><a href="<?=DIR;?>admin/file">Manage File</a></li>
-                        <li><a href="<?=DIR;?>admin/notification">Manage Notification</a></li>
+                        <? } ?>
+                        <? if(Session::get('admin')[0]->roleCode == 'mkcoor') {?>
+                        <li><a href="<?=DIR;?>admin/notification">Notification <span class="badge offset4" id="notiBadge"></span></a></li>
+                        <? } ?>
                     </ul>
                 </li>
             </ul>

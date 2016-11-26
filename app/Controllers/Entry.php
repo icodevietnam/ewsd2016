@@ -13,6 +13,7 @@ class Entry extends Controller {
     private $files;
     private $faculties;
     private $comments;
+    private $notifications;
     private $roles;
 
 	public function __construct()
@@ -22,6 +23,7 @@ class Entry extends Controller {
         $this->faculties = new \App\Models\Faculties();
         $this->files = new  \App\Models\Files();
         $this->comments = new  \App\Models\Comments();
+        $this->notifications = new  \App\Models\Notifications();
         $this->roles = new \App\Models\Roles();
     }
 
@@ -51,7 +53,15 @@ class Entry extends Controller {
             $rowFile = $this->files->getFileByName($file['name']);
         }
         $data = array('name' => $name,'description' => $description,'content' => $content,'faculty'=> Session::get('student')[0]->faculty ,'student' => Session::get('student')[0]->id ,'status'=>STATUS_NON_APPROVED,'img'=>$image['path'],'file'=>$rowFile->id);
-        echo json_encode($this->entries->add($data));
+        $entryId = $this->entries->add($data);
+        //Notification
+        $now = date('Y-m-d H:i:s');
+        $notiTitle = "Entry ".$name." was created at ".$now;
+        $notiContent = " User ".Session::get('student')[0]->username." created entry ".$name."and need to approve .";
+        $facultyId = Session::get('student')[0]->faculty;
+        $status = 'none';
+        $dataNoti = array('title' => $notiTitle,'content' => $notiContent,'faculty'=> $facultyId ,'entry'=>$entryId ,'status'=>$status);
+        echo json_encode($this->notifications->add($dataNoti));
     }
 
     public function getAll(){

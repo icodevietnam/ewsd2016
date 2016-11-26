@@ -2,12 +2,11 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-content">
-				<a href="<?=DIR;?>admin/role" class="btn-link">
+				<a href="<?=DIR;?>admin/notification" class="btn-link">
 					<h2><?= $title ?></h2>
 				</a>
-				<button data-toggle="modal" data-target="#newItem"class="btn btn-sm btn-primary">Create</button>
 				<div class="table-responsive">
-					<table id="tblNotifications"
+					<table id="tblItems"
 							class="table table-bordered table-hover table-striped">
 					</table>
 				</div>
@@ -27,37 +26,36 @@
 				</button>
 				<h4 class="modal-title" id="myModalLabel">View Notification</h4>
 			</div>
-			<form id="newItemForm" class="form-horizontal" method="POST">
+			<form id="notiForm" class="form-horizontal" method="POST">
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="name" class="col-sm-2 control-label">Title</label>
-						<div class="col-sm-9">
-							<input type="text" class="title form-control" name="title" >
+						<div class="col-sm-10">
+							<span class="notiId hidden"></span>
+							<span class="notiTitle"></span>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Description</label>
-						<div class="col-sm-9">
-							<input type="text" class="description form-control" name="description" >
+						<label for="description" class="col-sm-2 control-label">Content</label>
+						<div class="col-sm-10">
+							<span class="notiContent"></span>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Content</label>
-						<div class="col-sm-9">
-							<textarea name="content" class="content editor"></textarea>
+						<label for="code" class="col-sm-2 control-label">Faculty</label>
+						<div class="col-sm-10">
+							<span class="notiFaculty"></span>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="name" class="col-sm-2 control-label">Image</label>
-						<div class="col-sm-9">
-							<input type="file" class="image form-control" name="image" >
-							<img width="120px" class="img-rounded preview1" src="http://localhost/cat-prj/assets/images/default.png"  />
+						<label for="code" class="col-sm-2 control-label">Created Date</label>
+						<div class="col-sm-10">
+							<span class="notiCreatedDate"></span>
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
-					<button type="button" onclick="insertItem();" class="btn btn-primary">Save</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" onclick="read();" class="btn btn-primary">Read</button>
 				</div>
 			</form>
 		</div>

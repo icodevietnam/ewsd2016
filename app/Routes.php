@@ -111,6 +111,8 @@ Router::post('/notification/add', 'App\Controllers\Notification@addNotification'
 Router::post('/notification/delete', 'App\Controllers\Notification@delete');
 Router::get('/notification/get', 'App\Controllers\Notification@get');
 Router::post('/notification/update', 'App\Controllers\Notification@update');
+Router::get('/notification/countInbox', 'App\Controllers\Notification@countInbox');
+Router::post('/notification/read', 'App\Controllers\Notification@read');
 
 /** End default routes */
 

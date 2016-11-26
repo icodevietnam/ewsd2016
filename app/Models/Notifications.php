@@ -14,7 +14,17 @@ class Notifications extends Model
 	function getAll(){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."notification order by id desc ");
+			$data = $this->db->select("SELECT * FROM ".PREFIX."notification order by created_date desc ");
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
+	function getByFaculty($faculty){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT * FROM ".PREFIX."notification  WHERE faculty =:faculty order by created_date desc ",array(':faculty' => $faculty));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
@@ -45,11 +55,21 @@ class Notifications extends Model
 	function get($id){
 		$data = null;
 		try {
-			$data = $this->db->select("SELECT * FROM ".PREFIX."notification WHERE id =:id",array(':id' => $id));
+			$data = $this->db->select("SELECT N.*, concat(F.name,'-',F.year) as 'fName' FROM ".PREFIX." notification N, faculty F WHERE N.id =:id AND N.faculty = F.id ",array(':id' => $id));
 		} catch (Exception $e) {
 			echo 'Caught exception: ',  $e->getMessage(), "\n";
 		}
-		return $data;
+		return $data[0];
+	}
+
+	function getNotificationByFaculty($faculty){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT count(-1) as 'count' FROM ".PREFIX."notification WHERE faculty =:faculty AND status = 'none' ",array(':faculty' => $faculty));
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data[0];
 	}
 
 	function update($data,$where){
