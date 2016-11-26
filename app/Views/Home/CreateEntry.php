@@ -37,12 +37,12 @@
                                             <textarea name="content" placeholder="Content..." class="editor content form-control" id="content"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="file" class="sr-only">File</label>
+                                            <label for="file">File</label>
                                             <input type="file" class="file form-control" name="file" placeholder="File..." >
                                             <label id="file-error" class="error" for="file">File is not blank</label>
                                         </div>
                                         <div class="form-group">
-                                            <label for="image" class="sr-only">Image</label>
+                                            <label for="image">Image</label>
                                             <input type="file" class="image form-control" name="image" placeholder="Image..." >
                                             <label id="image-error" class="error" for="image">Image is not blank</label>
                                             <br/>
