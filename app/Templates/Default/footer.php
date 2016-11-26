@@ -4,7 +4,7 @@
 		 Greenwich <strong> University</strong>.
 	</div>
 	<div>
-		<strong>Copyright</strong> Greenwich University Saigon &copy; 2014-2015
+		<strong>Copyright</strong> Greenwich University Saigon &copy; 2016-2017
 	</div>
 </div>
 
