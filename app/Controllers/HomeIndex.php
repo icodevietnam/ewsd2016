@@ -70,8 +70,11 @@ class HomeIndex extends Controller {
     }
 
     public function createEntry(){
+        $url = '';
         if(Session::get('student') == null){
-            Url::redirect('home');
+            $url = "Error/NoPermission";
+        }else{
+            $url = "Home/CreateEntry";
         }
         $faculty = $this->faculties->getFacultyByCode($code);
         $data['title'] = 'Create Entry';
@@ -82,13 +85,16 @@ class HomeIndex extends Controller {
         $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
         $data['listFaculties'] = $listFaculties;
         View::renderTemplate('header', $data,'Home');
-        View::render('Home/CreateEntry', $data);
+        View::render($url, $data);
         View::renderTemplate('footer', $data,'Home');
     }
 
     public function profile(){
+        $url = '';
         if(Session::get('student') == null){
-            Url::redirect('home');
+           $url = "Error/NoPermission";
+        }else{
+            $url = "Home/Profile";
         }
         $faculty = $this->faculties->getFacultyByCode($code);
         $data['title'] = 'View Profile';
@@ -102,7 +108,7 @@ class HomeIndex extends Controller {
         $currentFaculty = $this->faculties->get(Session::get('student')[0]->faculty);
         $data['facultyCode'] = $currentFaculty[0]->code;
         View::renderTemplate('header', $data,'Home');
-        View::render('Home/Profile', $data);
+        View::render($url, $data);
         View::renderTemplate('footer', $data,'Home');
     }
 

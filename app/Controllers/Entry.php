@@ -31,11 +31,17 @@ class Entry extends Controller {
         if(Session::get('admin') == null){
             Url::redirect('admin/login');
         }
+        $url = '';
+        if(Session::get('admin')[0]->roleCode == 'mkcoor' || Session::get('admin')[0]->roleCode == 'mkmng'){
+            $url = "Entry/Entry";
+        }else{
+            $url = "Error/NoPermission";
+        }
         $data['title'] = 'Entry Management';
         $data['menu'] = 'faculty';
         $data['faculties'] = $this->faculties->getAll();
         View::renderTemplate('header', $data);
-        View::render('Entry/Entry', $data);
+        View::render($url, $data);
         View::renderTemplate('footer', $data);
     }
 
@@ -69,6 +75,12 @@ class Entry extends Controller {
     }
 
     public function yourEntries(){
+        $url = '';
+        if(Session::get('student') == null){
+           $url = "Error/NoPermission";
+        }else{
+            $url = "Home/YourEntry";
+        }
         $facultyValue = Session::get('student')[0]->faculty;
         $faculty = $this->faculties->get($facultyValue);
         $status = $_GET['status'];
@@ -85,7 +97,7 @@ class Entry extends Controller {
         $listFaculties = $this->faculties->getFacultiesByYear($currentYear);
         $data['listFaculties'] = $listFaculties;
         View::renderTemplate('header', $data,'Home');
-        View::render('Home/YourEntry', $data);
+        View::render($url, $data);
         View::renderTemplate('footer', $data,'Home');
     }
 

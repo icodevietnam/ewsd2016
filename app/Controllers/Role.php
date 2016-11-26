@@ -20,10 +20,16 @@ class Role extends Controller {
         if(Session::get('admin') == null){
             Url::redirect('admin/login');
         }
+        $url = '';
+        if(Session::get('admin')[0]->roleCode == 'admin'){
+            $url = "Role/Role";
+        }else{
+            $url = "Error/NoPermission";
+        }
     	$data['title'] = 'Role Management';
         $data['menu'] = 'user';
     	View::renderTemplate('header', $data);
-        View::render('Role/Role', $data);
+        View::render($url, $data);
         View::renderTemplate('footer', $data);
     }
 

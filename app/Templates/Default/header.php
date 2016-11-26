@@ -57,7 +57,7 @@
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                         <span>
-                        <img alt="image" class="img-rounded" width="50px" height="50px"
+                        <img alt="image" class="img-rounded" width="40px" height="40px"
                             src="<?php echo Session::get('admin')[0]->avatar ?>" />
                         </span> 
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#"> 
@@ -65,8 +65,7 @@
                             <span class="block m-t-xs"> <strong
                                     class="font-bold"><?php echo Session::get('admin')[0]->fullname ?></strong>
                             </span>
-                            <span class="block m-t-xs"> <strong
-                                    class="font-bold"><?php Session::get('admin')[0]->roleName?></strong>
+                            <span class="block m-t-xs"> <i style="font-size: " ><?= Session::get('admin')[0]->roleName ?></i>
                             </span>
                             <!-- <span class="departmentCur text-muted text-xs block">Phòng: Art Director</span> -->
                         </span>

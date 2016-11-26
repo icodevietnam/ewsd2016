@@ -3,10 +3,13 @@
 		<div class="ibox">
 			<div class="ibox-content">
 				<a href="<?=DIR;?>admin/entry" class="btn-link">
-					<h2><?= $title ?></h2>
+					<h2><?= $title ?> - Manage By : <?= Session::get('admin')[0]->username ?>
+						<br/>
+						<?= Session::get('admin')[0]->roleName ?>
+					</h2>
 				</a>
 				<?php if(Session::get('admin')[0]->roleCode != 'mkcoor') { ?>
-				<div class="col-lg-4">
+				<div class="row">
 					<select class="form-control" name="faculty" id="faculty" >
 						<?php foreach ($faculties as $faculty) { 
 							echo "<option value='".$faculty->id."'>".$faculty->code."</option>";
@@ -15,7 +18,7 @@
 					</select>
 				</div>
 				<?php } ?>
-				<div class="table-responsive">
+				<div class="row table-responsive">
 					<table id="tblItems"
 							class="table table-bordered table-hover table-striped">
 					</table>

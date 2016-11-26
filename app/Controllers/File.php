@@ -22,10 +22,16 @@ class File extends Controller {
         if(Session::get('admin') == null){
             Url::redirect('admin/login');
         }
+        $url = '';
+        if(Session::get('admin')[0]->roleCode == 'admin'){
+            $url = "File/File";
+        }else{
+            $url = "Error/NoPermission";
+        }
         $data['title'] = 'File Management';
         $data['menu'] = 'faculty';
         View::renderTemplate('header', $data);
-        View::render('File/File', $data);
+        View::render($url, $data);
         View::renderTemplate('footer', $data);
     }
 

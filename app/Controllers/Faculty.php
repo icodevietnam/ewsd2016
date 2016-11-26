@@ -24,13 +24,19 @@ class Faculty extends Controller {
         if(Session::get('admin') == null){
             Url::redirect('admin/login');
         }
+        $url = '';
+        if(Session::get('admin')[0]->roleCode == 'admin' || Session::get('admin')[0]->roleCode == 'mkmng'){
+            $url = "Faculty/Faculty";
+        }else{
+            $url = "Error/NoPermission";
+        }
     	$data['title'] = 'Faculty Management';
         $data['menu'] = 'faculty';
         $currentYear = date('Y');
         $years = array($currentYear,$currentYear - 1);
         $data['years'] = $years;
     	View::renderTemplate('header', $data);
-        View::render('Faculty/Faculty', $data);
+        View::render($url, $data);
         View::renderTemplate('footer', $data);
     }
 
