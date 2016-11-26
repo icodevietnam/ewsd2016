@@ -80,7 +80,6 @@
                     </div>
                     <div class="logo-element">IN+</div>
                 </li>
-                <? if(Session::get('admin')[0]->roleCode == 'mkcoor'  || Session::get('admin')[0]->roleCode == 'mkmng' ) {?>
                 <li class="user <?php if($menu == 'preference') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
                     class="nav-label">Statistics & Reports</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
@@ -88,7 +87,6 @@
                         <li><a href="<?=DIR;?>admin/reports">Reports</a></li>
                     </ul>
                 </li>
-                <? } ?>
                 <li class="user <?php if($menu == 'user') echo 'active'; ?> "><a href="#"><i class="fa fa-th-large"></i> <span
                     class="nav-label">Manage User</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
