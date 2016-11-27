@@ -80,6 +80,7 @@ Router::get('/faculty/getContributorsByEachAcademicYear', 'App\Controllers\Facul
 Router::get('/entry/getAll', 'App\Controllers\Entry@getAll');
 Router::post('/entry/add', 'App\Controllers\Entry@add');
 Router::get('/entry/getEntryByStatus', 'App\Controllers\Entry@getYourEntries');
+Router::get('/entry/checkEntries14dayandUpdateStatus', 'App\Controllers\Entry@checkEntries14dayandUpdateStatus');
 
 
 //File Action

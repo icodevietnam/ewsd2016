@@ -115,6 +115,17 @@
 	</div>
 </div>
 
+<div class="modal fade" id="statusModal" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+	<div class="modal-dialog modal-xs" role="document">
+		<div class="modal-content">
+				<div class="modal-body">
+					<span style="border:none;color:red;font-weight: bold;" class="message"></span>
+				</div>
+		</div>
+	</div>
+</div>
+
 <?php
 Assets::js([
 	Url::templatePath().'js/page/entry-admin.js'

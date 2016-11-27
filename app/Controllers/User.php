@@ -24,7 +24,7 @@ class User extends Controller {
         }
     	$data['title'] = 'User Management';
         $data['menu'] = 'user';
-        $data['roles'] = $this->roles->getAll();
+        $data['roles'] = $this->roles->getFitRoles(Session::get('admin')[0]->roleCode);
     	View::renderTemplate('header', $data);
         View::render('User/User', $data);
         View::renderTemplate('footer', $data);

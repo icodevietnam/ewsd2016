@@ -211,4 +211,15 @@ class Entry extends Controller {
         echo json_encode($this->entries->getEntriesWithOutComment14days());
     }
 
+
+    public function checkEntries14dayandUpdateStatus(){
+        $listId = $this->entries->selectIdEntriesWithoutComment14days();
+        foreach ($listId as $obj) {
+            $data=array("status"=>STATUS_CLOSE);
+            $where = array("id"=>$obj->id);
+            $this->entries->update($data,$where);
+        }
+        echo json_encode(true);
+    }
+
 }

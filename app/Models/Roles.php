@@ -47,6 +47,24 @@ class Roles extends Model
 		}
 	}
 
+	function getFitRoles($code){
+		$data = null;
+		$query = '';
+		try {
+			if($code == 'admin'){
+				$query = ("SELECT * FROM ".PREFIX."role order by id desc ");
+			}else if($code == 'mkmng'){
+				$query = ("SELECT * FROM ".PREFIX."role WHERE code = 'mkcoor' OR code= 'student' order by id desc ");
+			}else {
+				$query = ("SELECT * FROM ".PREFIX."role WHERE code= 'student' order by id desc ");
+			}
+			$data = $this->db->select($query);
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
+
 
 	function delete($id){
 		try {

@@ -121,4 +121,14 @@ class Entries extends Model
 		}
 		return $data;
 	}
+
+	function selectIdEntriesWithoutComment14days(){
+		$data = null;
+		try {
+			$data = $this->db->select("SELECT E.id FROM ".PREFIX."entry E WHERE datediff(now(),E.created_date) >= 14 AND E.id NOT IN (SELECT entry from comment ) AND status ='".STATUS_NON_APPROVED."'");
+		} catch (Exception $e) {
+			echo 'Caught exception: ',  $e->getMessage(), "\n";
+		}
+		return $data;
+	}
 }

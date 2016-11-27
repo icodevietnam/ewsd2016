@@ -23,6 +23,8 @@ $(function() {
 			}
 		},
 	});
+
+	checkEntries14days();
 });
 
 function displayTable(faculty) {
@@ -131,6 +133,33 @@ function viewComment(id){
 			});
 		}
 	});
+}
+
+function checkEntries14days(){
+	$('#statusModal').modal('show');
+	$('#statusModal .message').text("All Entries was updated for 14 days without comment ... Thank for waiting ...").show();
+	hideModal();
+}
+
+function hideModal(){
+	$.ajax({
+			url : "/ewsd2016/entry/checkEntries14dayandUpdateStatus",
+			type : "GET",
+			dataType : "JSON",
+			success : function(response) {
+				
+			},
+			complete : function(){
+				window.setTimeout(hidePopup,2000);
+			},
+			error: function (request, status, error) {
+        		alert(request.responseText);
+    		}
+	});
+}
+
+function hidePopup(){
+	$('#statusModal').modal('hide');
 }
 
 function checkStatus(status){

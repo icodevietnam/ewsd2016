@@ -2,6 +2,7 @@
 	$('#home').tab('show');
 	$('#file-error').hide();
 	$('#image-error').hide();
+	$('#successMsg').hide();
 
 	$("#createEntryForm .image").change(function(){
     	previewImage(this);
@@ -67,6 +68,7 @@ var createEntryForm = {
 				$('#createEntryForm .image').val('');
 				tinyMCE.triggerSave(true,true);
 				tinyMCE.activeEditor.setContent('');
+				$('#successMsg').show().delay(5000).fadeOut();
 			},
 		});
 		}

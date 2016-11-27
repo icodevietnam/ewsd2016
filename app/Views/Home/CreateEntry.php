@@ -49,6 +49,7 @@
                                             <img width="120px" style="margin-top:10px;" class="img-rounded text-right preview" src="http://localhost/ewsd2016/assets/images/no-image.png"  />
                                         </div>
                                         <button type="button" onclick="createEntryForm.create();" class="btn btn-primary">Create Entry</button>
+                                        <span id="successMsg" style="color: blue;" >The entry will be created and have 1 notification will send for coordinator.</span>
                                     </form>
                                 </div>
                             </div>
