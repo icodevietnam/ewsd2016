@@ -305,9 +305,11 @@ function reloadMkcoor(){
 			type : "GET",
 			dataType : "JSON",
 			success : function(response) {
-				$('select.mkcoor').find('option').remove();
+				$('#newItemForm .selectpicker>option').remove();
+				$('#updateItemForm .selectpicker>option').remove();
 				$.each(response,function(key,value){
-					$('select.mkcoor').append("<option value='"+ value.id +"' >" + value.name + "</option>");
+					$('#newItemForm .selectpicker').append("<option value='"+ value.id +"' >" + value.username + "</option>");
+					$('#updateItemForm .selectpicker').append("<option value='"+ value.id +"' >" + value.username + "</option>");
 				})
 			},
 			complete : function(){

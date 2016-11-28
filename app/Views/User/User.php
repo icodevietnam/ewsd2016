@@ -2,7 +2,7 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-content">
-				<a href="<?=DIR;?>admin/role" class="btn-link">
+				<a href="<?=DIR;?>admin/user" class="btn-link">
 					<h2><?= $title ?></h2>
 				</a>
 				<button data-toggle="modal" data-target="#newItem"class="btn btn-sm btn-primary">Create</button>

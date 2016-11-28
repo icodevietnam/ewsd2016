@@ -2,7 +2,7 @@
 	<div class="col-lg-12">
 		<div class="ibox">
 			<div class="ibox-content">
-				<a href="<?=DIR;?>admin/role" class="btn-link">
+				<a href="<?=DIR;?>admin/file" class="btn-link">
 					<h2><?= $title ?></h2>
 				</a>
 				<div class="table-responsive">

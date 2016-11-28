@@ -78,10 +78,10 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Faculty<span class="caret"></span></a>
                       <ul style="background: #222;" class="dropdown-menu">
                         <?php 
-                        foreach ($listFaculties as $faculty) {
-                            echo "<li><a class='page-scroll' title='".$faculty->description."' href='".DIR."contribute/".$faculty->code."'>".$faculty->name."</a></li>";
-                        }
-                    ?>
+                            foreach ($listFaculties as $faculty) {
+                                echo "<li><a class='page-scroll' title='".$faculty->description."' href='".DIR."contribute/".$faculty->code."'>".$faculty->name."</a></li>";
+                            }
+                        ?>
                       </ul>
                     </li>
                     <?php  if(Session::get('student') ==null ){ ?>

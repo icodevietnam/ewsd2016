@@ -2,7 +2,7 @@
 	<div class="col-lg-6">
 		<div class="ibox">
 			<div class="ibox-content">
-				<a href="<?=DIR;?>admin/role" class="btn-link">
+				<a href="<?=DIR;?>admin/change-password" class="btn-link">
 					<h2><?= $title ?></h2>
 				</a>
 				<form id="passwordForm" class="form-horizontal" method="POST">
